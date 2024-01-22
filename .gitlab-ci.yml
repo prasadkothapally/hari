@@ -21,7 +21,7 @@ deploy-docs:
   stage: deploy
   script:
     - docker rm -f fintrust-wiki
-    - docker run -d -p 8080:8080 --name="fintrust-wiki" gitlabnew.techwave.net:5050/fintrust/wiki      
+    - docker run -d -p 8089:8080 --name="fintrust-wiki" gitlabnew.techwave.net:5050/fintrust/wiki      
   tags:
     - docker
 
