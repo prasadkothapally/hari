@@ -1,7 +1,8 @@
 site_name: fintrust-wiki
 site_url: http://localhost:8080
 repo_url: https://gitlabnew.techwave.net/fintrust/wiki.git
-edit_uri: https://gitlabnew.techwave.net/fintrust/wiki/-/edit/main/-/edit/main/
+edit_uri: https://gitlabnew.techwave.net/fintrust/wiki/-/edit/main/docs/
+
 theme: readthedocs
 #theme:
 #  name: material
@@ -12,9 +13,16 @@ plugins:
  - kroki:
     ServerURL: https://kroki.io
     FencePrefix: kroki-
-    EnableBlockDiag: true
-    Enablebpmn: true
-    EnableMermaid: true
+    EnableBlockDiag: True
+    Enablebpmn: True
+    EnableMermaid: True
+    EnableDiagramsnet: True
+    FileTypes:
+      - png
+      - svg    
+    FileTypeOverrides:
+      mermaid: png
+      
  - plantuml:
     puml_url: https://www.plantuml.com/plantuml/
     num_workers: 8
