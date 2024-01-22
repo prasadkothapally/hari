@@ -229,6 +229,7 @@ app -> user : displays payment status and next steps.
 blockdiag {
   blockdiag -> generates -> "block-diagrams";
   blockdiag -> is -> "very easy!";
+  blockdiag -> is -> "also fun too!";
 
   blockdiag [color = "greenyellow"];
   "block-diagrams" [color = "pink"];
