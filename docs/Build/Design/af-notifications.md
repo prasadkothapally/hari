@@ -17,7 +17,7 @@
 |-------|-------------|---------|-----------|--|
 | email-queue |  | content_type=application/json | Yes |  |
 
-```kroki-plantuml
+```puml
 @startjson
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -89,7 +89,7 @@ Data flow diagram
 ## Example diagram
 
 
-```kroki-mermaid
+```mermaid
 flowchart TD
     G[publisher1]
     H[publisher2]
