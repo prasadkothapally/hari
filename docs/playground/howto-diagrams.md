@@ -144,7 +144,8 @@ blockdiag {
 }
 ```
 
-```xkroki-blockdiag no-transparency=false
+```
+xkroki-blockdiag no-transparency=false
 blockdiag {
   blockdiag -> generates -> "block-diagrams";
   blockdiag -> is -> "very easy!";
