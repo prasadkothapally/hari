@@ -1,6 +1,4 @@
-[[_TOC_]]
-
-# Overview
+# Funds Microservice
 
 <span dir="">Funds component is responsible to upload funds details. Once funds will be uploaded and will be validated. Then these funds will be stored into Database once validation will be done.</span>\
 We can search funds by passing either fully match or partial match of text. \

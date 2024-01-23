@@ -1,6 +1,4 @@
-[[_TOC_]]
-
-# Overview
+# DLQ Processor
 
 <span dir="">An af-dlq-processor component will consume all undelivered or exception messages from the retry queue, then it will check that the routing key is configured in the dlq_event_config table and application.properties. If it is configured, then it will start the retry processing based on max retries in the dlq_event_config table otherwise it will publish the message to dead letter queue.</span>
 

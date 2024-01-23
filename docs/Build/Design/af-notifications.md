@@ -1,6 +1,4 @@
-[[_TOC_]]
-
-# Overview
+# Notifications Microservice
 
 <span dir="">An af-notification is designed to send notifications to end users in the form of emails, and text messages.To send email notifications to customer af-notification integrated with Sendinblue API and using pub/sub model. </span>
 
