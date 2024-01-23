@@ -1,6 +1,6 @@
 > This component is deprecated and is replaced by Kestra. It is documented here only for historical purposes.
 
-# Overview
+# Scheduler Microservice
 
 af-scheduler: af-scheduler component is scheduler service of all-funds. This component manages jobs as scheduled tasks. Tasks related configurations are stored in database table. Jobs are triggered in regular interval of time as defined by cron expression. Once scheduler service starts, it fetches job related configuration from database and schedules the jobs with fetched configuration. It fetches configuration in every 5 minutes and checks if any configuration change happens. Old configuration of jobs will be deleted, and new configuration will be added to scheduler once change detected in configuration.\
 \

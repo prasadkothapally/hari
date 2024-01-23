@@ -1,4 +1,5 @@
-# Overview
+# Event Publisher
+
 <span dir="">An af-event-publisher component will monitor the verification collection in the af-profile service. If there is any data inserted in that verification collection, AF-Event-Publisher will consume the data and publish the message to RabbitMQ based on the routing key by adding a resume token in the payload.
   </span>
 
