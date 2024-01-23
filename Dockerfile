@@ -5,6 +5,7 @@ RUN pip install mkdocs_puml
 RUN pip install mkdocs-kroki-plugin
 RUN pip install fontawesome-markdown
 RUN pip install mkdocs-material
+RUN pip install mkdocs-mermaid2-plugin
 
 COPY ./docs /docs
 ADD ./mkdocs.yml /

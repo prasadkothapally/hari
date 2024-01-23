@@ -1,5 +1,32 @@
 # Playground to try out various diagrams
 
+## State Machine
+
+```kroki-plantuml
+@startuml
+[*] --> Creating
+Creating -> Created
+Created -> Started
+Started -> Stopped
+Created --> [*]
+Started --> [*]
+Stopped --> [*]
+@enduml
+```
+```xkroki-plantuml
+@startuml
+[*] --> Creating
+Creating -> Created
+Created -> Started
+Started -> Stopped
+Created --> [*]
+Started --> [*]
+Stopped --> [*]
+@enduml
+```
+
+
+
 ## Pie Chart
 ```
 pie title Pets adopted by volunteers

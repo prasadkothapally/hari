@@ -19,7 +19,8 @@
 |-------|-------------|---------|-----------|--|
 | email-queue |  | content_type=application/json | Yes |  |
 
-```json
+```kroki-plantuml
+@startjson
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -60,6 +61,7 @@
     "parameters"
   ]
 }
+@endjson
 ```
 
 ### Events

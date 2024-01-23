@@ -15,14 +15,12 @@ plugins:
     FencePrefix: kroki-
     EnableBlockDiag: True
     Enablebpmn: True
-    EnableMermaid: True
+    EnableMermaid: False
     EnableDiagramsnet: True
     FileTypes:
       - png
-      - svg    
-    FileTypeOverrides:
-      mermaid: png
-      
+      - svg
  - plantuml:
     puml_url: https://www.plantuml.com/plantuml/
     num_workers: 8
+ - mermaid2:

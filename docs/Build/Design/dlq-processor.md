@@ -131,7 +131,7 @@ Data flow diagram
 
 ## Example diagram
 
-``` kroki-mermaid
+```mermaid
 flowchart TD
     pub1[publisher-1] -->ex1(Exchange-1)-->|Routing key-1| q1(Queue-1)
     pub2[publisher-2] -->ex2(Exchange-2)-->|Routing key-2| q2(Queue-2)
