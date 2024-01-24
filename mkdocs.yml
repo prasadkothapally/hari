@@ -24,3 +24,10 @@ plugins:
     puml_url: https://www.plantuml.com/plantuml/
     num_workers: 8
  - mermaid2:
+ - swagger-ui:
+      spec_url: 'https://fintrust-dev.techwave.net/openapi'
+      outfile: 'docs/api.md'
+pages:
+  - 'Home': index.md
+  - 'API Reference': api.md      
+      
