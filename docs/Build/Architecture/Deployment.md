@@ -33,6 +33,34 @@ Accounting    |Used for deployment of all application components related to Acco
 Kestra        |Used for deployment of the Kestra scheduler components
 Fintrust-Data |Only used on lower environments (such as local, auto, stage etc. ) Supports deployment of stateful components such as Postgres, Mongo and RabbitMQ
 
+## Components
+
+The application comprises of the following components
+
+```kroki-plantuml
+@startuml
+
+package AllFunds { 
+  component af-profile
+  component af-funds
+  component af-portfolio
+  component af-notifications
+  component af-eventpublisher
+  component af-dlqprocessor
+}
+
+package Accounting {
+  component acc-api
+  component acc-bo
+  component acc-analytics
+}
+
+package Kestra {
+ component KestraScheduler
+}
+
+
+```
 
 ## Interactions
 
