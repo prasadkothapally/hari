@@ -40,7 +40,7 @@ The application comprises of the following components
 ```kroki-plantuml
 @startuml
 
-package AllFunds { 
+frame AllFunds { 
   component af-profile{
   }
   component af-funds{
@@ -55,7 +55,7 @@ package AllFunds {
   }
 }
 
-package Accounting {
+frame Accounting {
   component acc-api{
   }
   component acc-bo{
@@ -64,7 +64,7 @@ package Accounting {
   }
 }
 
-package Kestra {
+frame Kestra {
  component KestraScheduler{
  }
 }
