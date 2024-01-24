@@ -59,7 +59,7 @@ package Kestra {
  component KestraScheduler{}
 }
 
-
+@enduml
 ```
 
 ## Interactions
