@@ -41,22 +41,32 @@ The application comprises of the following components
 @startuml
 
 package AllFunds { 
-  component af-profile{}
-  component af-funds{}
-  component af-portfolio{}
-  component af-notifications{}
-  component af-eventpublisher{}
-  component af-dlqprocessor{}
+  component af-profile{
+  }
+  component af-funds{
+  }
+  component af-portfolio{
+  }
+  component af-notifications{
+  }
+  component af-eventpublisher{
+  }
+  component af-dlqprocessor{
+  }
 }
 
 package Accounting {
-  component acc-api{}
-  component acc-bo{}
-  component acc-analytics{}
+  component acc-api{
+  }
+  component acc-bo{
+  }
+  component acc-analytics{
+  }
 }
 
 package Kestra {
- component KestraScheduler{}
+ component KestraScheduler{
+ }
 }
 
 @enduml
