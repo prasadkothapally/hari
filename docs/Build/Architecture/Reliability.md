@@ -1,7 +1,8 @@
-# Home
+# Reliability
 
-Most of the business and technical components are deployed over kubernetes
+Most of the business and technical components are deployed over kubernetes.
 This gives us the following architectural benefits
+
  - Scale components UP and DOWN easily
  - Scale components vertically by increasing/decreasing available Memory and CPU
  - Scale components to occupy available compute infrastructure using the Horizontal Pod Autoscaler.
