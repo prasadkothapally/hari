@@ -14,5 +14,5 @@ Some of the Kubernetes features that we use are
  - Simplified Reliability
    - Automatic Recovery when components fail
    - Health-checks to prevent unhealthy components from serving requests and automatic recycling of the same.
-   - Built-in load balancing
+   - Built-in load balancing and fail-over
 
