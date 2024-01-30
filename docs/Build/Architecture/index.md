@@ -9,3 +9,6 @@ The AllFunds architecture embodies the following principles.
  - Simplified and predictable deployments
  - Promote Microservice adoption
  - Utilise 12-factor principles in building the application components
+
+hjhk
+
