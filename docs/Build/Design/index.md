@@ -56,18 +56,18 @@ Please see this [The API documentation](https://fintrust-dev.techwave.net/swagge
 
 ### SCM
 
- 1) Every component has its own git project. Using a single git project and nested folders to manage resources of various kind is discouraged.
- 2) Every git project results in an artifact. It maybe an executable, or a docker container or a Java archive or a Helm chart.
- 3) Main is the default branch and is left unprotected for all devs to be able to commit.
- 4) Trunk based development is followed. Main is the only branch. Devs can use other branches to build their features but this is not mandatory. Only the main branch is connected to the pipelines. This approach may change post go-live.
+ 1. Every component has its own git project. Using a single git project and nested folders to manage resources of various kind is discouraged.
+ 2. Every git project results in an artifact. It maybe an executable, or a docker container or a Java archive or a Helm chart.
+ 3. Main is the default branch and is left unprotected for all devs to be able to commit.
+ 4. Trunk based development is followed. Main is the only branch. Devs can use other branches to build their features but this is not mandatory. Only the main branch is connected to the pipelines. This approach may change post go-live.
  
 ### CI
 
- 1) Every git project has a build pipeline connected to it. 
- 2) The build pipeline is setup using gitlab CI.
- 3) Docker artifacts are stored in GitLab Container Registry
- 4) Helm artifacts are stored in GitLab Package Registry
- 5) Java artifacts (jars) are stored in Reposilite
+ 1. Every git project has a build pipeline connected to it. 
+ 2. The build pipeline is setup using gitlab CI.
+ 3. Docker artifacts are stored in GitLab Container Registry
+ 4. Helm artifacts are stored in GitLab Package Registry
+ 5. Java artifacts (jars) are stored in Reposilite
 
 ### Versioning
  1) All components are versioned as 0.<SprintNumber>.<Fix> at the start of the sprint. These changes are made in the individual build and pipeline manifests (pom.xml and .gitlab-ci.yaml for example)
