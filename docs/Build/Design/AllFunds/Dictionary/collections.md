@@ -499,7 +499,7 @@ sfa_token collection stores sfa_token, User ID, device ID, fcm token etc.
 
 field | description | characteristics | example
 ------|-------------|-----------------|----------
-_id | flow id as identifier | ObjectId | 65b8a2d4b99e8a50536a7121
+_id | identifier | ObjectId | 65b8a2d4b99e8a50536a7121
 deviceId | device login id | String | c2749b2874fcefd9
 expires | token expire time | Date | 2024-04-29T07:18:44.327Z
 fcmToken | fire base cloud messaging token | String | dwF-1wLtSQewAAHCBQksgc:APA91bEv_xmQwoycrG4V1k3rGm32JrEg0U2fbm2ig5JeRz8gwzErf8RTydC4uNKjgLwWUEs8p0SnDnTc-vid8MrPodfkuonycYKsjK7Rt0gtUTtBy7O7IBUgaPkfkPU178EzklQBfrrA
