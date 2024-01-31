@@ -217,3 +217,248 @@ lastEvent.eventType | event type | String | USER_EMAIL_VERIFICATION_INITIATED
 lastEvent.payLoad | payload | String | "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}"
 lastEvent.routingKey | routing key | String | user.email-verification-initiated
 
+## scratchpad
+scratchpad collection is used to store Items in cart, wishlist and compare.
+
+### example
+
+```json
+{
+  "_id": "52CF06LF",
+  "cartItems": [
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF336L01PB2",
+      "name": "HSBC Focused Fund - Direct Growth",
+      "oneTimeOrSIP": {
+        "amount": 5000,
+        "investmentType": "ONETIME",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 0,
+        "sipInterval": "",
+        "sipIsPerpetual": true
+      },
+      "portfolioId": "02"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF680P01109",
+      "name": "Shriram Flexi Cap Fund - Direct Growth",
+      "oneTimeOrSIP": {
+        "amount": 5000,
+        "investmentType": "ONETIME",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 0,
+        "sipInterval": "",
+        "sipIsPerpetual": true
+      },
+      "portfolioId": "01"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF204K01G52",
+      "name": "Nippon India Consumption Fund - Direct Plan Growth Plan - Growth Option",
+      "oneTimeOrSIP": {
+        "amount": 5000,
+        "investmentType": "ONETIME",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 0,
+        "sipInterval": "",
+        "sipIsPerpetual": true
+      },
+      "portfolioId": "01"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF760K01DU1",
+      "name": "CANARA ROBECO CONSUMER TRENDS FUND - DIRECT PLAN - GROWTH OPTION",
+      "oneTimeOrSIP": {
+        "amount": 2000,
+        "investmentType": "SIP",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 1,
+        "sipEndDate": "2024-05-01T00:00:00.000Z",
+        "sipInterval": "MONTHLY",
+        "sipIsPerpetual": true,
+        "sipStartDate": "2023-12-01T00:00:00.000Z"
+      },
+      "portfolioId": "01"
+    }
+  ],
+  "compareItems": [],
+  "uccCode": "52CF06LF",
+  "wishlistItems": [
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF760K01JC6",
+      "name": "CANARA ROBECO SMALL CAP FUND - DIRECT PLAN - GROWTH OPTION"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF879O01100",
+      "name": "Parag Parikh Tax Saver Fund- Direct Growth"
+    },
+    {
+      "assetCategory": "Flexi Cap",
+      "isin": "INF680P01109",
+      "name": "Shriram Flexi Cap Fund - Direct Growth"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF336L01NV5",
+      "name": "HSBC Large & Mid Cap Fund - Direct Growth"
+    }
+  ]
+}
+```
+
+### visual
+
+```puml
+@startjson
+{
+  "_id": "52CF06LF",
+  "cartItems": [
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF336L01PB2",
+      "name": "HSBC Focused Fund - Direct Growth",
+      "oneTimeOrSIP": {
+        "amount": 5000,
+        "investmentType": "ONETIME",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 0,
+        "sipInterval": "",
+        "sipIsPerpetual": true
+      },
+      "portfolioId": "02"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF680P01109",
+      "name": "Shriram Flexi Cap Fund - Direct Growth",
+      "oneTimeOrSIP": {
+        "amount": 5000,
+        "investmentType": "ONETIME",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 0,
+        "sipInterval": "",
+        "sipIsPerpetual": true
+      },
+      "portfolioId": "01"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF204K01G52",
+      "name": "Nippon India Consumption Fund - Direct Plan Growth Plan - Growth Option",
+      "oneTimeOrSIP": {
+        "amount": 5000,
+        "investmentType": "ONETIME",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 0,
+        "sipInterval": "",
+        "sipIsPerpetual": true
+      },
+      "portfolioId": "01"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF760K01DU1",
+      "name": "CANARA ROBECO CONSUMER TRENDS FUND - DIRECT PLAN - GROWTH OPTION",
+      "oneTimeOrSIP": {
+        "amount": 2000,
+        "investmentType": "SIP",
+        "oneTimeTenureInMonths": 0,
+        "sipDayOfMonth": 1,
+        "sipEndDate": "2024-05-01T00:00:00.000Z",
+        "sipInterval": "MONTHLY",
+        "sipIsPerpetual": true,
+        "sipStartDate": "2023-12-01T00:00:00.000Z"
+      },
+      "portfolioId": "01"
+    }
+  ],
+  "compareItems": [],
+  "uccCode": "52CF06LF",
+  "wishlistItems": [
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF760K01JC6",
+      "name": "CANARA ROBECO SMALL CAP FUND - DIRECT PLAN - GROWTH OPTION"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF879O01100",
+      "name": "Parag Parikh Tax Saver Fund- Direct Growth"
+    },
+    {
+      "assetCategory": "Flexi Cap",
+      "isin": "INF680P01109",
+      "name": "Shriram Flexi Cap Fund - Direct Growth"
+    },
+    {
+      "assetCategory": "MIDCAP",
+      "assetClass": "EQUITY",
+      "isin": "INF336L01NV5",
+      "name": "HSBC Large & Mid Cap Fund - Direct Growth"
+    }
+  ]
+}
+@endjson
+```
+
+### dictionary
+
+field | description | characteristics | example
+------|-------------|-----------------|---------
+_id | identifier | String | 52CF06LF
+uccCode | user identity | String | 52CF06LF
+wishlistItems | wishlist items | Array | Array of Objects
+wishlistItems.isin | fund isin | String | INF760K01DU1
+wishlistItems.name | fund name | String | Parag Parikh Tax Saver Fund- Direct Growth
+wishlistItems.assetClass | asset class | String | EQUITY
+wishlistItems.assetCategory | asset category | String | MIDCAP
+compareItems | compare items | Array | Array of Objects
+compareItems.isin | fund isin | String | INF879O01100
+compareItems.assetClass | asset class | String | EQUITY
+cartItems | cart items | Array | Array of Objects
+cartItems.isin | fund isin | String | INF336L01NV5
+cartItems.name | fund name | String | HSBC Focused Fund - Direct Growth
+cartItems.assetCategory | asset category | String | MIDCAP
+cartItems.oneTimeOrSIP | purchase or sip or swp or stp or switch or redeem | Object | Object
+cartItems.oneTimeOrSIP.oneTimeTenureInMonths | tenure in month | int32 | 12
+cartItems.oneTimeOrSIP.sipDayOfMonth | day of the month | int32 | 1
+cartItems.oneTimeOrSIP.amount | amount | Double | 5000
+cartItems.oneTimeOrSIP.investmentType | investment type | String | BUY
+cartItems.oneTimeOrSIP.sipStartDate | SIP start date | Date | 2023-12-01T00:00:00.000Z
+cartItems.oneTimeOrSIP.sipEndDate | SIP end date | Date | 2024-05-01T00:00:00.000Z
+cartItems.oneTimeOrSIP.sipInterval | SIP interval | String | MONTHLY
+cartItems.oneTimeOrSIP.sipIsPerpetual | if SIP perpetual | boolean | true
+cartItems.oneTimeOrSIP.transferTo | target fund | String | INF760K01DU1 
+cartItems.oneTimeOrSIP.redeemOrSwitchOption | redeem option | String | E - All Units, A - Specific Amount, U - Specific Units
+cartItems.oneTimeOrSIP.redeemOrSwitchUnits | number of units | String | 5
+cartItems.oneTimeOrSIP.redeemOrSwitchAmount | amount | String | 500
+cartItems.portfolioId | portfolio ID | String | 02
+cartItems.folioId | folio ID | String | ABC
+cartItems.bankAccountNo | back account number | String | 8762356784763
+cartItems.isFormFilled | if form filled | boolean | true
+cartItems.isPayoutChecked | if payout checked | boolean | false
+meta | metadata | Object | Object
+meta.created | created date| Date | 2023-12-05T10:11:12.315Z
+meta.lastModified | last modified | Date | 2023-12-05T10:11:12.315Z
+schemaVer | schema version | String | 1
+
+
