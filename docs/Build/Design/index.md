@@ -70,7 +70,8 @@ Please see this [The API documentation](https://fintrust-dev.techwave.net/swagge
  5. Java artifacts (jars) are stored in Reposilite
 
 ### Versioning
- 1) All components are versioned as 0.<SprintNumber>.<Fix> at the start of the sprint. These changes are made in the individual build and pipeline manifests (pom.xml and .gitlab-ci.yaml for example)
-
+ 1. All components are versioned as 0.{SprintNumber}.{FixNumber} at the start of the sprint. These changes are made in the individual build and pipeline manifests (pom.xml and .gitlab-ci.yaml for example).
+ 2. The Helm chart's app version is adjusted to 0.{SprintNumber}.{FixNumber}
+ 3. The images referenced in the Helm chart are modified to use the 0.{SprintNumber}.{FixNumber} of each component.
 
  
