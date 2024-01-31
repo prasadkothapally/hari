@@ -461,4 +461,51 @@ meta.created | created date| Date | 2023-12-05T10:11:12.315Z
 meta.lastModified | last modified | Date | 2023-12-05T10:11:12.315Z
 schemaVer | schema version | String | 1
 
+## sfa_token
+
+sfa_token collection stores sfa_token, User ID, device ID, fcm token etc.
+
+### example
+
+```json
+{
+  "_id": "65b8a2d4b99e8a50536a7121",
+  "deviceId": "c2749b2874fcefd9",
+  "expires": "2024-04-29T07:18:44.327Z",
+  "fcmToken": "dwF-1wLtSQewAAHCBQksgc:APA91bEv_xmQwoycrG4V1k3rGm32JrEg0U2fbm2ig5JeRz8gwzErf8RTydC4uNKjgLwWUEs8p0SnDnTc-vid8MrPodfkuonycYKsjK7Rt0gtUTtBy7O7IBUgaPkfkPU178EzklQBfrrA",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL21mQXV0aCIsInN1YiI6IlRRQkpYWlU3VlBXSiIsImdyb3VwcyI6WyJTRkEtVVNFUiJdLCJkZXZpY2VJRCI6ImMyNzQ5YjI4NzRmY2VmZDkiLCJpYXQiOjE3MDY1OTkxMjQsImV4cCI6MTcxNDM3NTEyNCwianRpIjoiODg5Mzc1MmEtOTI3Zi00OTg2LThiNmUtZTdhYTNmYWE0ZmEyIn0.M1lfgoqT8T8jvrW3woC7mkZxovZmyBFl9uEQULmu0696p_i8CRoHuzGeFdZn5d3s0n4_BsbDqSIiwhUlR0c8ghW-NldLSLW_geUUc72tl9M1LnWuM81ghgd-786RwemuUuOt7IzZsioziiuvihM7wDnuVK5N_AD2BD0ZHqPD9TukyjLBotGZKS2qoHdkhiqUmZ183_HWwVimZ7aqNK36XSCON17Gbf5typ6QRwbwwcV4kNVPwOR2OX4bhZ2lmQufgE-QOi70FI1P7KA8iEwNtjz3J87sHBXR5XY0u5P9pik0JMEjQCkxpFwTZ_kpkjUpdpaSCmjlWfxeMJarL2FI8A",
+  "userAgent": "OnePlus OnePlus EB2101",
+  "userId": "TQBJXZU7VPWJ"
+}
+```
+
+### visual
+
+```puml
+@startjson
+{
+  "_id": "65b8a2d4b99e8a50536a7121",
+  "deviceId": "c2749b2874fcefd9",
+  "expires": "2024-04-29T07:18:44.327Z",
+  "fcmToken": "dwF-1wLtSQewAAHCBQksgc:APA91bEv_xmQwoycrG4V1k3rGm32JrEg0U2fbm2ig5JeRz8gwzErf8RTydC4uNKjgLwWUEs8p0SnDnTc-vid8MrPodfkuonycYKsjK7Rt0gtUTtBy7O7IBUgaPkfkPU178EzklQBfrrA",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL21mQXV0aCIsInN1YiI6IlRRQkpYWlU3VlBXSiIsImdyb3VwcyI6WyJTRkEtVVNFUiJdLCJkZXZpY2VJRCI6ImMyNzQ5YjI4NzRmY2VmZDkiLCJpYXQiOjE3MDY1OTkxMjQsImV4cCI6MTcxNDM3NTEyNCwianRpIjoiODg5Mzc1MmEtOTI3Zi00OTg2LThiNmUtZTdhYTNmYWE0ZmEyIn0.M1lfgoqT8T8jvrW3woC7mkZxovZmyBFl9uEQULmu0696p_i8CRoHuzGeFdZn5d3s0n4_BsbDqSIiwhUlR0c8ghW-NldLSLW_geUUc72tl9M1LnWuM81ghgd-786RwemuUuOt7IzZsioziiuvihM7wDnuVK5N_AD2BD0ZHqPD9TukyjLBotGZKS2qoHdkhiqUmZ183_HWwVimZ7aqNK36XSCON17Gbf5typ6QRwbwwcV4kNVPwOR2OX4bhZ2lmQufgE-QOi70FI1P7KA8iEwNtjz3J87sHBXR5XY0u5P9pik0JMEjQCkxpFwTZ_kpkjUpdpaSCmjlWfxeMJarL2FI8A",
+  "userAgent": "OnePlus OnePlus EB2101",
+  "userId": "TQBJXZU7VPWJ"
+}
+@endjson
+```
+
+### dictionary
+
+field | description | characteristics | example
+------|-------------|-----------------|----------
+_id | flow id as identifier | ObjectId | 65b8a2d4b99e8a50536a7121
+deviceId | device login id | String | c2749b2874fcefd9
+expires | token expire time | Date | 2024-04-29T07:18:44.327Z
+fcmToken | fire base cloud messaging token | String | dwF-1wLtSQewAAHCBQksgc:APA91bEv_xmQwoycrG4V1k3rGm32JrEg0U2fbm2ig5JeRz8gwzErf8RTydC4uNKjgLwWUEs8p0SnDnTc-vid8MrPodfkuonycYKsjK7Rt0gtUTtBy7O7IBUgaPkfkPU178EzklQBfrrA
+token | sfa token | String | eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL21mQXV0aCIsInN1YiI6IlRRQkpYWlU3VlBXSiIsImdyb3VwcyI6WyJTRkEtVVNFUiJdLCJkZXZpY2VJRCI6ImMyNzQ5YjI4NzRmY2VmZDkiLCJpYXQiOjE3MDY1OTkxMjQsImV4cCI6MTcxNDM3NTEyNCwianRpIjoiODg5Mzc1MmEtOTI3Zi00OTg2LThiNmUtZTdhYTNmYWE0ZmEyIn0.M1lfgoqT8T8jvrW3woC7mkZxovZmyBFl9uEQULmu0696p_i8CRoHuzGeFdZn5d3s0n4_BsbDqSIiwhUlR0c8ghW-NldLSLW_geUUc72tl9M1LnWuM81ghgd-786RwemuUuOt7IzZsioziiuvihM7wDnuVK5N_AD2BD0ZHqPD9TukyjLBotGZKS2qoHdkhiqUmZ183_HWwVimZ7aqNK36XSCON17Gbf5typ6QRwbwwcV4kNVPwOR2OX4bhZ2lmQufgE-QOi70FI1P7KA8iEwNtjz3J87sHBXR5XY0u5P9pik0JMEjQCkxpFwTZ_kpkjUpdpaSCmjlWfxeMJarL2FI8A
+userAgent | agent name | String | OnePlus OnePlus EB2101
+userId | user Id | String | TQBJ-XZU7-VPWJ
+
+
 
