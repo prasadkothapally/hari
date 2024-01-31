@@ -508,4 +508,312 @@ userAgent | agent name | String | OnePlus OnePlus EB2101
 userId | user Id | String | TQBJ-XZU7-VPWJ
 
 
+## mfu_profiles
+mfu_profiles collection user details against mfu profile.
 
+### example 
+```json
+{
+  "_id": "WGK4DJWN5OW2",
+  "accounts": [
+    {
+      "accountNo": "2213038184",
+      "accountType": "SB",
+      "bankId": "485",
+      "bankName": "Kotak Mahindra Bank Limited",
+      "bankSeqNum": 1,
+      "defaultAccountFlag": "Y",
+      "ifscCode": "KKBK0007478",
+      "micrCode": "500485003",
+      "proofType": "LATEST_BANK_ACCOUNT_STATEMENT"
+    }
+  ],
+  "can": "31348MJ003",
+  "canStatus": "PE",
+  "documents": [
+    {
+      "_id": "657ab1c1f953330ef69ae4bc",
+      "documentType": "1#PC",
+      "eventType": "AD",
+      "fileName": "Screenshot_20231214_125703_AllFunds",
+      "imageRefNo": "ECA23348BC003"
+    },
+    {
+      "_id": "657ab37af953330ef69ae4c2",
+      "documentType": "1#PC",
+      "eventType": "AD",
+      "fileName": "Screenshot_20231214_125703_AllFunds",
+      "imageRefNo": "ECA23348BC005"
+    }
+  ],
+  "nominees": [
+    {
+      "nomineeDob": "1993-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Prasad",
+      "nomineeRelation": "Son",
+      "nomineeSeqNum": 1,
+      "percentage": "50"
+    },
+    {
+      "nomineeDob": "1993-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Prasad",
+      "nomineeRelation": "Son",
+      "nomineeSeqNum": 1,
+      "percentage": "50"
+    },
+    {
+      "nomineeDob": "1997-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Kamal",
+      "nomineeRelation": "Brother",
+      "nomineeSeqNum": 2,
+      "percentage": "40"
+    },
+    {
+      "nomineeDob": "2023-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "2005-12-15",
+      "nomineeGuardianName": "John",
+      "nomineeGuardianRelation": "Uncle",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Monkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1996-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "2005-12-15",
+      "nomineeGuardianName": "John",
+      "nomineeGuardianRelation": "Uncle",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Monkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1996-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "2005-12-15",
+      "nomineeGuardianName": "John",
+      "nomineeGuardianRelation": "Uncle",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Monkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "2003-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Donkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1986-05-04T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Hurch",
+      "nomineeRelation": "Fried",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1986-05-04T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Hurch",
+      "nomineeRelation": "Fried",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    }
+  ]
+}
+```
+
+### visual
+```puml
+@startjson
+{
+  "_id": "WGK4DJWN5OW2",
+  "accounts": [
+    {
+      "accountNo": "2213038184",
+      "accountType": "SB",
+      "bankId": "485",
+      "bankName": "Kotak Mahindra Bank Limited",
+      "bankSeqNum": 1,
+      "defaultAccountFlag": "Y",
+      "ifscCode": "KKBK0007478",
+      "micrCode": "500485003",
+      "proofType": "LATEST_BANK_ACCOUNT_STATEMENT"
+    }
+  ],
+  "can": "31348MJ003",
+  "canStatus": "PE",
+  "documents": [
+    {
+      "_id": "657ab1c1f953330ef69ae4bc",
+      "documentType": "1#PC",
+      "eventType": "AD",
+      "fileName": "Screenshot_20231214_125703_AllFunds",
+      "imageRefNo": "ECA23348BC003"
+    },
+    {
+      "_id": "657ab37af953330ef69ae4c2",
+      "documentType": "1#PC",
+      "eventType": "AD",
+      "fileName": "Screenshot_20231214_125703_AllFunds",
+      "imageRefNo": "ECA23348BC005"
+    }
+  ],
+  "nominees": [
+    {
+      "nomineeDob": "1993-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Prasad",
+      "nomineeRelation": "Son",
+      "nomineeSeqNum": 1,
+      "percentage": "50"
+    },
+    {
+      "nomineeDob": "1993-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Prasad",
+      "nomineeRelation": "Son",
+      "nomineeSeqNum": 1,
+      "percentage": "50"
+    },
+    {
+      "nomineeDob": "1997-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Kamal",
+      "nomineeRelation": "Brother",
+      "nomineeSeqNum": 2,
+      "percentage": "40"
+    },
+    {
+      "nomineeDob": "2023-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "2005-12-15",
+      "nomineeGuardianName": "John",
+      "nomineeGuardianRelation": "Uncle",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Monkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1996-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "2005-12-15",
+      "nomineeGuardianName": "John",
+      "nomineeGuardianRelation": "Uncle",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Monkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1996-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "2005-12-15",
+      "nomineeGuardianName": "John",
+      "nomineeGuardianRelation": "Uncle",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Monkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "2003-12-15T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Lewis",
+      "nomineeRelation": "Donkey",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1986-05-04T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Hurch",
+      "nomineeRelation": "Fried",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    },
+    {
+      "nomineeDob": "1986-05-04T00:00:00.000Z",
+      "nomineeGuardianDob": "",
+      "nomineeGuardianName": "",
+      "nomineeGuardianRelation": "",
+      "nomineeName": "Hurch",
+      "nomineeRelation": "Fried",
+      "nomineeSeqNum": 2,
+      "percentage": "100"
+    }
+  ]
+}
+@endjson
+```
+
+### dictionary
+
+fields | description | characteristics | example
+-------|-------------|-----------------|----------
+_id | ucc id as identifier | String | WGK4-DJWN-5OW2
+can | can (common account number) | String | 31348MJ003
+canStatus | status of can | String | PE
+nominees | nominees | Object | Object
+nominees.nomineeSeqNum | sequence number | int | 1
+nominees.nomineeName | nominee name | String | Prasad
+nominees.nomineeRelation | relation | String | Son
+nominees.percentage | percentage | String | 50
+nominees.nomineeDob | nominee date of birth | Date | 1993-12-15T00:00:00.000Z
+nominees.nomineeGuardianName | guardian name of nominee | String | John
+nominees.nomineeGuardianRelation | relation with guardian | String | Uncle
+nominees.nomineeGuardianDob | DOB of guardian of nominee | String | 2005-12-15
+accounts | account details | Object | Object
+accounts.bankSeqNum | sequence number of bank | int | 1
+accounts.defaultAccountFlag | if default account number | String | Y
+accounts.accountNo | account number | String | 2213038184
+accounts.accountType | account type | String | SB
+accounts.bankId | bank Id | String | 485
+accounts.bankName | bank name | String | Kotak Mahindra Bank Limited
+accounts.ifscCode | ifsc code | String | KKBK0007478
+accounts.micrCode | micr code | String | 500485003
+accounts.proofType | bank proof type | String | LATEST_BANK_ACCOUNT_STATEMENT
+accounts.mandates | mandates | Object | Array of Mandates
+accounts.mandates.mmrn | String | String | String
+accounts.mandates.mmrnRegStatus | String | String | String
+accounts.mandates.mmrnAggrStatus | String | String | String
+accounts.mandates.prn | String | String | String
+accounts.mandates.stratdate | start date | Date | Date
+accounts.mandates.endDate | end date | Date | Date
+accounts.mandates.maxAmount | maximum amount | long | long
+accounts.mandates.registrationMode | registration mode | String | String
+accounts.mandates.termsVersion | terms version | String | String
+accounts.mandates.termsAgreed | if user agreed terms | boolean | true
+accounts.mandates.termsAgreedDate | date of agreed terms | Date | Date
+documents | document of proof | Object | Object
+documents.id | identifier | Object Id | Object Id
+documents.imageRefNo | image reference number | String | to be given
+documents.fileName | name of file | String | to be given
+documents.eventType | event type | String | to be given
+documents.documentType | document type | String | to be given
