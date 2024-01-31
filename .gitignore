@@ -25,7 +25,10 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
+
+#Shivaram: Turned off the below because it was stopping .md files from getting added in the Build folder
+#build/
+
 !**/src/main/**/build/
 !**/src/test/**/build/
 
