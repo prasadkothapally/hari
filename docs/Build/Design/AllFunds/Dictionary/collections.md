@@ -98,25 +98,25 @@ audit.createdAt | when was this document created | Object  | Object
 audit.lastUpdated | when was this document last updated | Object | Object
 credentials | credentials of users | Object | Object
 credentials.mpin | mpin of users | Object | Object
-credentials.mpin.method | encryption method | String | "bcrypt"
-credentials.mpin.value | encrypted mpin value | String | "$2a$10$sqJLF2wG48NuD228YDXKseLRvpziPFXNsQsoMkAFXKdaqm9HADCVG"
+credentials.mpin.method | encryption method | String | bcrypt
+credentials.mpin.value | encrypted mpin value | String | $2a$10$sqJLF2wG48NuD228YDXKseLRvpziPFXNsQsoMkAFXKdaqm9HADCVG
 credentials.password | stored password | Object | Object
-credentials.password.method | encryption method | "bcrypt"
-credentials.password.value | encrypted password value | "$2a$10$Kwgj.LKGzXl7hIa8nYK/2.6SOK3u3uAfAFYnNr1UET1XXOLjc/kA6"
+credentials.password.method | encryption method | bcrypt
+credentials.password.value | encrypted password value | $2a$10$Kwgj.LKGzXl7hIa8nYK/2.6SOK3u3uAfAFYnNr1UET1XXOLjc/kA6
 lastEvent | when last even occur | Object | Object
-lastEvent.createDate | when user created | Date | "2023-12-05T09:58:12.645Z"
-lastEvent.eventType | what is last event | String | "USER_LOGIN_FAILURE"
+lastEvent.createDate | when user created | Date | 2023-12-05T09:58:12.645Z
+lastEvent.eventType | what is last event | String | USER_LOGIN_FAILURE
 lastEvent.payload | what was the payload | String | "{\"userId\":\"ZVX1Z12L\",\"emailId\":\"test1@gmail.com\",\"userAgent\":null,\"deviceId\":\"goldfish_x86_64\",\"ipAddress\":null,\"os\":null}"
-lastEvent.routingKey | routing key for messaging | String | "user.login-failure"
+lastEvent.routingKey | routing key for messaging | String | user.login-failure
 realm | realm of user | String | "internal"
 schemaVer | schema version of collection | Int32 | 0
 traits | user traits | Object | Object
 traits.general | general traits | Object | Object
-traits.general.email | email of user | String | "test1@gmail.com"
+traits.general.email | email of user | String | test1@gmail.com
 traits.general.emailVerified | if email verified | boolean | true
-traits.general.firstName | first name of user | String | "Haris"
-traits.general.lastName | last name of user | String | "Faiz"
-traits.general.phoneNumber | phone number | String | "7755221144"
+traits.general.firstName | first name of user | String | Haris
+traits.general.lastName | last name of user | String | Faiz
+traits.general.phoneNumber | phone number | String | 7755221144
 traits.general.phoneVerified | if phone verified | boolean | true
 traits.general.address | user address | Object | Object
 traits.general.address.addressLine1 | address line 1 | String | Gachibowli
@@ -138,3 +138,82 @@ auth | auth info | Object | Object
 auth.status | auth status | String | String  
 auth.lastLoginAt | last login | long | long
 auth.failedLogins | failed logins | int | 2
+
+## verification
+
+verification collection stores verification related all aspects while user creation and verification.
+
+### example 
+
+```json
+{
+  "_id": "656ef6f5e04a1c5726d26c63",
+  "createdDate": "2023-12-05T10:09:57.382Z",
+  "email": "test11@gmail.com",
+  "emailOTP": "9767",
+  "emailOTPExpriedDate": "2023-12-05T10:10:57.382Z",
+  "emailVerified": true,
+  "firstName": "Test",
+  "lastName": "User",
+  "phone": "9876547896",
+  "phoneOTP": "2910",
+  "phoneOTPExpriedDate": "2023-12-05T10:11:12.315Z",
+  "phoneVerified": true,
+  "lastEvent": {
+    "createDate": "2023-11-15T13:48:06.649Z",
+    "eventType": "USER_EMAIL_VERIFICATION_INITIATED",
+    "payload": "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}",
+    "routingKey": "user.email-verification-initiated"
+  }
+}
+```
+
+### visual
+
+```puml
+@startjson
+{
+  "_id": "656ef6f5e04a1c5726d26c63",
+  "createdDate": "2023-12-05T10:09:57.382Z",
+  "email": "test11@gmail.com",
+  "emailOTP": "9767",
+  "emailOTPExpriedDate": "2023-12-05T10:10:57.382Z",
+  "emailVerified": true,
+  "firstName": "Test",
+  "lastName": "User",
+  "phone": "9876547896",
+  "phoneOTP": "2910",
+  "phoneOTPExpriedDate": "2023-12-05T10:11:12.315Z",
+  "phoneVerified": true,
+  "lastEvent": {
+    "createDate": "2023-11-15T13:48:06.649Z",
+    "eventType": "USER_EMAIL_VERIFICATION_INITIATED",
+    "payload": "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}",
+    "routingKey": "user.email-verification-initiated"
+  }
+}
+@endjson
+```
+
+### dictionary
+
+field | description | characteristics | example
+------|-------------|-----------------|--------
+_id | object id | ObjectId | 6554cc16ce74ee253e46db44
+firstName | First Name | String | Test
+lastName | Last Name | String | User
+email | email | String | test@gmail.com
+emailOTP  | otp | String | 9767
+isEmailVerified | if email verified | boolean | true
+emailOTPExpriedDate | otp expire date | Date | "2023-12-05T10:10:57.382Z"
+phone | phone number | String | 9876007896
+phoneOTP | otp | String | 2910
+isPhoneVerified | if phone number verified | boolean | true
+phoneOTPExpriedDate | otp expire date | Date | 2023-12-05T10:11:12.315Z
+createdDate | created date | Date | 2023-12-05T10:09:57.382Z
+lastEvent | last event | Object | Object
+lastEvent.createdDate | created date | Date | 2023-11-15T13:48:06.649Z
+lastEvent.eventType | event type | String | USER_EMAIL_VERIFICATION_INITIATED
+lastEvent.payLoad | payload | String | "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}"
+lastEvent.routingKey | routing key | String | user.email-verification-initiated
+
