@@ -865,7 +865,7 @@ ucc | unique customer code | String | no | to be given
 changeType | change tye | String | no | to be given
 operation | operation | String | no | to be given
 sentAt | request date and time | Date | no | to be given
-responserecievedAt | response date and time| no | Date | to be given
+responserecievedAt | response date and time| Date | not | to be given
 status | status | String | no | to be given
 mfuStatus | mfu status | String | no | to be given
 uniqueId | unique Id | String | no | to be given
