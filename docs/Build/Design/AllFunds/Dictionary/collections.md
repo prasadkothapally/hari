@@ -808,7 +808,7 @@ accounts.bankId | bank Id | String | no | 485
 accounts.bankName | bank name | String | no | Kotak Mahindra Bank Limited
 accounts.ifscCode | ifsc code | String | no | KKBK0007478
 accounts.micrCode | micr code | String | no | 500485003
-accounts.proofType | bank proof type | String | yes - com.fintrust.allfunds.profile.impl.enums.BankProofType | LATEST_BANK_ACCOUNT_STATEMENT
+accounts.proofType | bank proof type | [BankProofType](https://gitlabnew.techwave.net/fintrust/af-profile/-/blob/main/src/main/java/com/fintrust/allfunds/profile/impl/enums/BankProofType.java) | yes | LATEST_BANK_ACCOUNT_STATEMENT
 accounts.mandates | mandates | Object | no | Array of Mandates
 accounts.mandates.mmrn | String | String | no | String
 accounts.mandates.mmrnRegStatus | String | String | no | String
