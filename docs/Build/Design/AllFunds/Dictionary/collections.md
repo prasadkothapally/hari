@@ -99,54 +99,54 @@ users collection stores user profile details like user id, user credential, audi
 
 ### dictionary
 
-field | description | characteristics | example 
------|------------|----------------|--------------------------
-_id  | the identifier of the user | ObjectID | QC7G-Q47E-EFWU 
-audit | Audit fields | Object  | holding object
-audit.createdAt | when was this document created | Object  | Object
-audit.lastUpdated | when was this document last updated | Object | Object
-credentials | credentials of users | Object | Object
-credentials.mpin | mpin of users | Object | Object
-credentials.mpin.method | encryption method | String | bcrypt
-credentials.mpin.value | encrypted mpin value | String | $2a$10$sqJLF2wG48NuD228YDXKseLRvpziPFXNsQsoMkAFXKdaqm9HADCVG
-credentials.password | stored password | Object | Object
-credentials.password.method | encryption method | bcrypt
-credentials.password.value | encrypted password value | $2a$10$Kwgj.LKGzXl7hIa8nYK/2.6SOK3u3uAfAFYnNr1UET1XXOLjc/kA6
-lastEvent | when last even occur | Object | Object
-lastEvent.createDate | when user created | Date | 2023-12-05T09:58:12.645Z
-lastEvent.eventType | what is last event | String | USER_LOGIN_FAILURE
-lastEvent.payload | what was the payload | String | "{\"userId\":\"ZVX1Z12L\",\"emailId\":\"test1@gmail.com\",\"userAgent\":null,\"deviceId\":\"goldfish_x86_64\",\"ipAddress\":null,\"os\":null}"
-lastEvent.routingKey | routing key for messaging | String | user.login-failure
-realm | realm of user | String | "internal"
-schemaVer | schema version of collection | Int32 | 0
-traits | user traits | Object | Object
-traits.general | general traits | Object | Object
-traits.general.email | email of user | String | test1@gmail.com
-traits.general.emailVerified | if email verified | boolean | true
-traits.general.firstName | first name of user | String | Haris
-traits.general.lastName | last name of user | String | Faiz
-traits.general.phoneNumber | phone number | String | 7755221144
-traits.general.phoneVerified | if phone verified | boolean | true
-traits.general.address | user address | Object | Object
-traits.general.address.addressLine1 | address line 1 | String | Gachibowli
-traits.general.address.addressLine2 | address line 2 | String | String
-traits.general.address.city | city | String | Hyderabad
-traits.general.address.state | state | String | Telangana
-traits.general.address.pinCode | pin code | String | 500001
-traits.general.address.country | country | String | India
-traits.general.dateOfBirth | date of birth | Date | 2002-12-05
-traits.customer | customer traits | Object | Object
-traits.customer.pan | pan | String | ACMP9837D
-traits.customer.membershipPlan | membership plan | String | GOLD
-traits.customer.kyc | kyc | Object | Object
-traits.customer.kyc.status | kyc status | String | String
-traits.customer.kyc.statusCode | status code | String | String 
-traits.customer.kyc.lastVerified | last verified | long | 2023-12-05
-traits.customer.kyc.claims | kyc claims | Object | Object
-auth | auth info | Object | Object
-auth.status | auth status | String | String  
-auth.lastLoginAt | last login | long | long
-auth.failedLogins | failed logins | int | 2
+field | description | characteristics | is enum | example 
+-----|------------|-------------------|---------|------------
+_id  | the identifier of the user | ObjectID | no | QC7G-Q47E-EFWU 
+audit | Audit fields | Object | no  | holding object
+audit.createdAt | when was this document created | Object | no  | Object
+audit.lastUpdated | when was this document last updated | Object | no | Object
+credentials | credentials of users | Object | no | Object
+credentials.mpin | mpin of users | Object | no | Object
+credentials.mpin.method | encryption method | String | no | bcrypt
+credentials.mpin.value | encrypted mpin value | String | no | $2a$10$sqJLF2wG48NuD228YDXKseLRvpziPFXNsQsoMkAFXKdaqm9HADCVG
+credentials.password | stored password | Object | no | Object
+credentials.password.method | encryption method | String | no | bcrypt
+credentials.password.value | encrypted password value | no | $2a$10$Kwgj.LKGzXl7hIa8nYK/2.6SOK3u3uAfAFYnNr1UET1XXOLjc/kA6
+lastEvent | when last even occur | Object | no | Object
+lastEvent.createDate | when user created | Date | no | 2023-12-05T09:58:12.645Z
+lastEvent.eventType | what is last event | String | no | USER_LOGIN_FAILURE
+lastEvent.payload | what was the payload | String | no | "{\"userId\":\"ZVX1Z12L\",\"emailId\":\"test1@gmail.com\",\"userAgent\":null,\"deviceId\":\"goldfish_x86_64\",\"ipAddress\":null,\"os\":null}"
+lastEvent.routingKey | routing key for messaging | String | no | user.login-failure
+realm | realm of user | String | no | "internal"
+schemaVer | schema version of collection | Int32 | no | 0
+traits | user traits | Object | no | Object
+traits.general | general traits | Object | no | Object
+traits.general.email | email of user | String | no | test1@gmail.com
+traits.general.emailVerified | if email verified | boolean | no | true
+traits.general.firstName | first name of user | String | no | Haris
+traits.general.lastName | last name of user | String | no | Faiz
+traits.general.phoneNumber | phone number | String | no | 7755221144
+traits.general.phoneVerified | if phone verified | boolean | no | true
+traits.general.address | user address | Object | no | Object
+traits.general.address.addressLine1 | address line 1 | String | no | Gachibowli
+traits.general.address.addressLine2 | address line 2 | String | no | String
+traits.general.address.city | city | String | no | Hyderabad
+traits.general.address.state | state | String | no | Telangana
+traits.general.address.pinCode | pin code | String | no | 500001
+traits.general.address.country | country | String | no | India
+traits.general.dateOfBirth | date of birth | Date | no | 2002-12-05
+traits.customer | customer traits | Object | no | Object
+traits.customer.pan | pan | String | no| ACMP9837D
+traits.customer.membershipPlan | membership plan | String | no | GOLD
+traits.customer.kyc | kyc | Object | no | Object
+traits.customer.kyc.status | kyc status | String | no | String
+traits.customer.kyc.statusCode | status code | String | no | String 
+traits.customer.kyc.lastVerified | last verified | long | no | 2023-12-05
+traits.customer.kyc.claims | kyc claims | Object | no | Object
+auth | auth info | Object | no | Object
+auth.status | auth status | String | no | String  
+auth.lastLoginAt | last login | long | no | long
+auth.failedLogins | failed logins | int | no | 2
 
 ## verification
 
@@ -206,25 +206,25 @@ verification collection stores verification related all aspects while user creat
 
 ### dictionary
 
-field | description | characteristics | example
-------|-------------|-----------------|--------
-_id | object id | ObjectId | 6554cc16ce74ee253e46db44
-firstName | First Name | String | Test
-lastName | Last Name | String | User
-email | email | String | test@gmail.com
-emailOTP  | otp | String | 9767
-isEmailVerified | if email verified | boolean | true
-emailOTPExpriedDate | otp expire date | Date | "2023-12-05T10:10:57.382Z"
-phone | phone number | String | 9876007896
-phoneOTP | otp | String | 2910
-isPhoneVerified | if phone number verified | boolean | true
-phoneOTPExpriedDate | otp expire date | Date | 2023-12-05T10:11:12.315Z
-createdDate | created date | Date | 2023-12-05T10:09:57.382Z
-lastEvent | last event | Object | Object
-lastEvent.createdDate | created date | Date | 2023-11-15T13:48:06.649Z
-lastEvent.eventType | event type | String | USER_EMAIL_VERIFICATION_INITIATED
-lastEvent.payLoad | payload | String | "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}"
-lastEvent.routingKey | routing key | String | user.email-verification-initiated
+field | description | characteristics | is enum | example
+------|-------------|-----------------|---------|--------
+_id | object id | ObjectId | no | 6554cc16ce74ee253e46db44
+firstName | First Name | String | no | Test
+lastName | Last Name | String | no | User
+email | email | String | no | test@gmail.com
+emailOTP  | otp | String | no | 9767
+isEmailVerified | if email verified | boolean | no | true
+emailOTPExpriedDate | otp expire date | Date | no | "2023-12-05T10:10:57.382Z"
+phone | phone number | String | no | 9876007896
+phoneOTP | otp | String | no | 2910
+isPhoneVerified | if phone number verified | boolean | no | true
+phoneOTPExpriedDate | otp expire date | Date | no | 2023-12-05T10:11:12.315Z
+createdDate | created date | Date | no | 2023-12-05T10:09:57.382Z
+lastEvent | last event | Object | no | Object
+lastEvent.createdDate | created date | Date | no | 2023-11-15T13:48:06.649Z
+lastEvent.eventType | event type | String | yes - com.fintrust.allfunds.commons.enums.EventType | USER_EMAIL_VERIFICATION_INITIATED
+lastEvent.payLoad | payload | String | no | "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}"
+lastEvent.routingKey | routing key | String | no | user.email-verification-initiated
 
 ## scratchpad
 scratchpad collection is used to store Items in cart, wishlist and compare.
