@@ -784,48 +784,48 @@ mfu_profiles collection user details against mfu profile.
 
 ### dictionary
 
-fields | description | characteristics | example
--------|-------------|-----------------|----------
-_id | ucc id as identifier | String | WGK4-DJWN-5OW2
-can | can (common account number) | String | 31348MJ003
-canStatus | status of can | String | PE
-nominees | nominees | Object | Object
-nominees.nomineeSeqNum | sequence number | int | 1
-nominees.nomineeName | nominee name | String | Prasad
-nominees.nomineeRelation | relation | String | Son
-nominees.percentage | percentage | String | 50
-nominees.nomineeDob | nominee date of birth | Date | 1993-12-15T00:00:00.000Z
-nominees.nomineeGuardianName | guardian name of nominee | String | John
-nominees.nomineeGuardianRelation | relation with guardian | String | Uncle
-nominees.nomineeGuardianDob | DOB of guardian of nominee | String | 2005-12-15
-accounts | account details | Object | Object
-accounts.bankSeqNum | sequence number of bank | int | 1
-accounts.defaultAccountFlag | if default account number | String | Y
-accounts.accountNo | account number | String | 2213038184
-accounts.accountType | account type | String | SB
-accounts.bankId | bank Id | String | 485
-accounts.bankName | bank name | String | Kotak Mahindra Bank Limited
-accounts.ifscCode | ifsc code | String | KKBK0007478
-accounts.micrCode | micr code | String | 500485003
-accounts.proofType | bank proof type | String | LATEST_BANK_ACCOUNT_STATEMENT
-accounts.mandates | mandates | Object | Array of Mandates
-accounts.mandates.mmrn | String | String | String
-accounts.mandates.mmrnRegStatus | String | String | String
-accounts.mandates.mmrnAggrStatus | String | String | String
-accounts.mandates.prn | String | String | String
-accounts.mandates.stratdate | start date | Date | Date
-accounts.mandates.endDate | end date | Date | Date
-accounts.mandates.maxAmount | maximum amount | long | long
-accounts.mandates.registrationMode | registration mode | String | String
-accounts.mandates.termsVersion | terms version | String | String
-accounts.mandates.termsAgreed | if user agreed terms | boolean | true
-accounts.mandates.termsAgreedDate | date of agreed terms | Date | Date
-documents | document of proof | Object | Object
-documents.id | identifier | Object Id | Object Id
-documents.imageRefNo | image reference number | String | to be given
-documents.fileName | name of file | String | to be given
-documents.eventType | event type | String | to be given
-documents.documentType | document type | String | to be given
+fields | description | characteristics | is enum | example
+-------|-------------|-----------------|---------|----------
+_id | ucc id as identifier | String | no | WGK4-DJWN-5OW2
+can | can (common account number) | String | no | 31348MJ003
+canStatus | status of can | String | no | PE
+nominees | nominees | Object | no| Object
+nominees.nomineeSeqNum | sequence number | int | no | 1
+nominees.nomineeName | nominee name | String | no | Prasad
+nominees.nomineeRelation | relation | String | no | Son
+nominees.percentage | percentage | String | no | 50
+nominees.nomineeDob | nominee date of birth | Date | no | 1993-12-15T00:00:00.000Z
+nominees.nomineeGuardianName | guardian name of nominee | String | no | John
+nominees.nomineeGuardianRelation | relation with guardian | String | no | Uncle
+nominees.nomineeGuardianDob | DOB of guardian of nominee | String | no | 2005-12-15
+accounts | account details | Object | no | Object
+accounts.bankSeqNum | sequence number of bank | int | no | 1
+accounts.defaultAccountFlag | if default account number | String | no | Y
+accounts.accountNo | account number | String | no | 2213038184
+accounts.accountType | account type | String | no | SB
+accounts.bankId | bank Id | String | no | 485
+accounts.bankName | bank name | String | no | Kotak Mahindra Bank Limited
+accounts.ifscCode | ifsc code | String | no | KKBK0007478
+accounts.micrCode | micr code | String | no | 500485003
+accounts.proofType | bank proof type | String | yes - com.fintrust.allfunds.profile.impl.enums.BankProofType | LATEST_BANK_ACCOUNT_STATEMENT
+accounts.mandates | mandates | Object | no | Array of Mandates
+accounts.mandates.mmrn | String | String | no | String
+accounts.mandates.mmrnRegStatus | String | String | no | String
+accounts.mandates.mmrnAggrStatus | String | String | no | String
+accounts.mandates.prn | String | String | no | String
+accounts.mandates.stratdate | start date | Date | no | Date
+accounts.mandates.endDate | end date | Date | no | Date
+accounts.mandates.maxAmount | maximum amount | long | no | long
+accounts.mandates.registrationMode | registration mode | String | yes - com.fintrust.allfunds.profile.impl.enums.RegistrationModeType | PN
+accounts.mandates.termsVersion | terms version | String | no | String
+accounts.mandates.termsAgreed | if user agreed terms | boolean | no | true
+accounts.mandates.termsAgreedDate | date of agreed terms | Date | no | Date
+documents | document of proof | Object | no | Object
+documents.id | identifier | Object Id | no | Object Id
+documents.imageRefNo | image reference number | String | no | to be given
+documents.fileName | name of file | String | no | to be given
+documents.eventType | event type | String | no | to be given
+documents.documentType | document type | String | no | to be given
 
 ## mfu_requests
 mfu_requests collection stores payload details for mfu response.
@@ -835,18 +835,17 @@ to be given
 ### visual
 to be given
 ### dictionary
-
-field | description | characteristics | example
-------|-------------|-----------------|---------
-_id | identifier | ObjectId | to be given
-orderId | order id | String | to be given
-request | request | String | to be given
-mfuResponse | mfu response | Object | Object
-mfuResponse.statusCode | status code | int | to be given
-mfuResponse.statusText | status text | String | to be given
-mfuResponse.responseBody | response body |  String | to be given
-sentAt | request sent date and time | long | to be given 
-receivedAt | response revived date and time | Date | to be given 
+field | description | characteristics | is enum | example
+------|-------------|-----------------|---------|---------
+_id | identifier | ObjectId | no | to be given
+orderId | order id | String | no | to be given
+request | request | String | no | to be given
+mfuResponse | mfu response | Object | no | Object
+mfuResponse.statusCode | status code | int | no | to be given
+mfuResponse.statusText | status text | String | no | to be given
+mfuResponse.responseBody | response body |  String | no | to be given
+sentAt | request sent date and time | long | no | to be given 
+receivedAt | response revived date and time | Date | no | to be given 
 
 ## mfu_nct
 mfu_nct collection stores details of non commercial transaction.
