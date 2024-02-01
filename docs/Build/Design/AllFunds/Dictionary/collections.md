@@ -879,5 +879,5 @@ bankDetails.bankId | bank Id | String | no | to be given
 bankDetails.bankName | bank name | String | no | to be given
 bankDetails.ifscCode | ifsc code | String | no | to be given
 bankDetails.micrCode | micr code | String | no | to be given
-bankDetails.proofType | proof type | String | yes | to be given
-bankDetails.bankEventType | bank event type | String | yes | to be given
+bankDetails.proofType | proof type | String | yes - com.fintrust.allfunds.profile.impl.enums.BankProofType | to be given
+bankDetails.bankEventType | bank event type | String | yes - com.fintrust.allfunds.profile.impl.enums.BankEventType | to be given
