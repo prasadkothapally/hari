@@ -1,5 +1,14 @@
 # Collections
 
+## lists
+- users
+- verification
+- scratchpad
+- sfa_token
+- mfu_profiles
+- mfu_requests
+- mfu_nct
+
 ## users
 
 users collection stores user profile details like user id, user credential, audi, traits etc.
@@ -817,3 +826,58 @@ documents.imageRefNo | image reference number | String | to be given
 documents.fileName | name of file | String | to be given
 documents.eventType | event type | String | to be given
 documents.documentType | document type | String | to be given
+
+## mfu_requests
+mfu_requests collection stores payload details for mfu response.
+
+### example
+to be given
+### visual
+to be given
+### dictionary
+
+field | description | characteristics | example
+------|-------------|-----------------|---------
+_id | identifier | ObjectId | to be given
+orderId | order id | String | to be given
+request | request | String | to be given
+mfuResponse | mfu response | Object | Object
+mfuResponse.statusCode | status code | int | to be given
+mfuResponse.statusText | status text | String | to be given
+mfuResponse.responseBody | response body |  String | to be given
+sentAt | request sent date and time | long | to be given 
+receivedAt | response revived date and time | Date | to be given 
+
+## mfu_nct
+mfu_nct collection stores details of non commercial transaction.
+
+### example
+to be given
+ 
+### visual
+to be given
+
+### dictionary
+fields | description | characteristics | is enum | example
+-------|-------------|-----------------|---------|-------
+_id | identifier | Object Id | no |to be given
+ucc | unique customer code | String | no | to be given
+changeType | change tye | String | no | to be given
+operation | operation | String | no | to be given
+sentAt | request date and time | Date | no | to be given
+responserecievedAt | response date and time| no | Date | to be given
+status | status | String | no | to be given
+mfuStatus | mfu status | String | no | to be given
+uniqueId | unique Id | String | no | to be given
+nctRefNo | nct reference number | String | no | to be given
+bankDetails | bank details | Object | no | Object
+bankDetails.bankSeqNum | bank sequence number | int | no | to be given
+bankDetails.defaultAccountFlag | if default account selected | boolean | no | to be given
+bankDetails.accountNo | account number | String | no | to be given
+bankDetails.accountType | account type | String | no | to be given
+bankDetails.bankId | bank Id | String | no | to be given
+bankDetails.bankName | bank name | String | no | to be given
+bankDetails.ifscCode | ifsc code | String | no | to be given
+bankDetails.micrCode | micr code | String | no | to be given
+bankDetails.proofType | proof type | String | yes | to be given
+bankDetails.bankEventType | bank event type | String | yes | to be given
