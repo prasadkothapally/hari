@@ -111,7 +111,7 @@ credentials.mpin.method | encryption method | String | no | bcrypt
 credentials.mpin.value | encrypted mpin value | String | no | $2a$10$sqJLF2wG48NuD228YDXKseLRvpziPFXNsQsoMkAFXKdaqm9HADCVG
 credentials.password | stored password | Object | no | Object
 credentials.password.method | encryption method | String | no | bcrypt
-credentials.password.value | encrypted password value | no | $2a$10$Kwgj.LKGzXl7hIa8nYK/2.6SOK3u3uAfAFYnNr1UET1XXOLjc/kA6
+credentials.password.value | encrypted password value | String | no | $2a$10$Kwgj.LKGzXl7hIa8nYK/2.6SOK3u3uAfAFYnNr1UET1XXOLjc/kA6
 lastEvent | when last even occur | Object | no | Object
 lastEvent.createDate | when user created | Date | no | 2023-12-05T09:58:12.645Z
 lastEvent.eventType | what is last event | String | no | USER_LOGIN_FAILURE
@@ -222,7 +222,7 @@ phoneOTPExpriedDate | otp expire date | Date | no | 2023-12-05T10:11:12.315Z
 createdDate | created date | Date | no | 2023-12-05T10:09:57.382Z
 lastEvent | last event | Object | no | Object
 lastEvent.createdDate | created date | Date | no | 2023-11-15T13:48:06.649Z
-lastEvent.eventType | event type | String | yes - com.fintrust.allfunds.commons.enums.EventType | USER_EMAIL_VERIFICATION_INITIATED
+lastEvent.eventType | event type | [EventType](https://gitlabnew.techwave.net/fintrust/af-commons/-/blob/main/src/main/java/com/fintrust/allfunds/commons/enums/EventType.java) | yes | USER_EMAIL_VERIFICATION_INITIATED
 lastEvent.payLoad | payload | String | no | "{\"emailId\":\"testuser.12334@gmail.com\",\"otp\":\"2358\",\"createDate\":\"2023-11-15T13:48:06.645+00:00\",\"expiredDate\":\"2023-11-15T13:49:06.645+00:00\"}"
 lastEvent.routingKey | routing key | String | no | user.email-verification-initiated
 
@@ -438,15 +438,15 @@ uccCode | user identity | String | no | 52CF06LF
 wishlistItems | wishlist items | Array | no | Array of Objects
 wishlistItems.isin | fund isin | String | no | INF760K01DU1
 wishlistItems.name | fund name | String | no | Parag Parikh Tax Saver Fund- Direct Growth
-wishlistItems.assetClass | asset class | String | yes - com.fintrust.allfunds.commons.enums.AssetClassType | EQUITY
+wishlistItems.assetClass | asset class | [AssetClassType](https://gitlabnew.techwave.net/fintrust/af-commons/-/blob/main/src/main/java/com/fintrust/allfunds/commons/enums/AssetClassType.java) | yes | EQUITY
 wishlistItems.assetCategory | asset category | String | no | MIDCAP
 compareItems | compare items | Array | no | Array of Objects
 compareItems.isin | fund isin | String | no | INF879O01100
-compareItems.assetClass | asset class | String | yes - com.fintrust.allfunds.commons.enums.AssetClassType | EQUITY
+compareItems.assetClass | asset class | [AssetClassType](https://gitlabnew.techwave.net/fintrust/af-commons/-/blob/main/src/main/java/com/fintrust/allfunds/commons/enums/AssetClassType.java) | yes | EQUITY
 cartItems | cart items | Array | no | Array of Objects
 cartItems.isin | fund isin | String | no | INF336L01NV5
 cartItems.name | fund name | String | no | HSBC Focused Fund - Direct Growth
-cartItems.assetClass | asset class | String | yes - com.fintrust.allfunds.commons.enums.AssetClassType | EQUITY
+cartItems.assetClass | asset class | [AssetClassType](https://gitlabnew.techwave.net/fintrust/af-commons/-/blob/main/src/main/java/com/fintrust/allfunds/commons/enums/AssetClassType.java) | yes | EQUITY
 cartItems.assetCategory | asset category | String | no | MIDCAP
 cartItems.oneTimeOrSIP | purchase or sip or swp or stp or switch or redeem | Object | no | Object
 cartItems.oneTimeOrSIP.oneTimeTenureInMonths | tenure in month | int32 | no | 12
@@ -817,7 +817,7 @@ accounts.mandates.prn | String | String | no | String
 accounts.mandates.stratdate | start date | Date | no | Date
 accounts.mandates.endDate | end date | Date | no | Date
 accounts.mandates.maxAmount | maximum amount | long | no | long
-accounts.mandates.registrationMode | registration mode | String | yes - com.fintrust.allfunds.profile.impl.enums.RegistrationModeType | PN
+accounts.mandates.registrationMode | registration mode | [RegistrationModeType](https://gitlabnew.techwave.net/fintrust/af-profile/-/blob/main/src/main/java/com/fintrust/allfunds/profile/impl/enums/RegistrationModeType.java) | yes | PN
 accounts.mandates.termsVersion | terms version | String | no | String
 accounts.mandates.termsAgreed | if user agreed terms | boolean | no | true
 accounts.mandates.termsAgreedDate | date of agreed terms | Date | no | Date
@@ -879,5 +879,5 @@ bankDetails.bankId | bank Id | String | no | to be given
 bankDetails.bankName | bank name | String | no | to be given
 bankDetails.ifscCode | ifsc code | String | no | to be given
 bankDetails.micrCode | micr code | String | no | to be given
-bankDetails.proofType | proof type | String | yes - com.fintrust.allfunds.profile.impl.enums.BankProofType | to be given
-bankDetails.bankEventType | bank event type | String | yes - com.fintrust.allfunds.profile.impl.enums.BankEventType | to be given
+bankDetails.proofType | proof type | [BankProofType](https://gitlabnew.techwave.net/fintrust/af-profile/-/blob/main/src/main/java/com/fintrust/allfunds/profile/impl/enums/BankProofType.java) | yes | to be given
+bankDetails.bankEventType | bank event type | [BankEventType](https://gitlabnew.techwave.net/fintrust/af-profile/-/blob/main/src/main/java/com/fintrust/allfunds/profile/impl/enums/BankEventType.java) | yes | to be given
