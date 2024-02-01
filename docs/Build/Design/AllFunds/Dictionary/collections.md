@@ -431,44 +431,45 @@ scratchpad collection is used to store Items in cart, wishlist and compare.
 
 ### dictionary
 
-field | description | characteristics | example
-------|-------------|-----------------|---------
-_id | identifier | String | 52CF06LF
-uccCode | user identity | String | 52CF06LF
-wishlistItems | wishlist items | Array | Array of Objects
-wishlistItems.isin | fund isin | String | INF760K01DU1
-wishlistItems.name | fund name | String | Parag Parikh Tax Saver Fund- Direct Growth
-wishlistItems.assetClass | asset class | String | EQUITY
-wishlistItems.assetCategory | asset category | String | MIDCAP
-compareItems | compare items | Array | Array of Objects
-compareItems.isin | fund isin | String | INF879O01100
-compareItems.assetClass | asset class | String | EQUITY
-cartItems | cart items | Array | Array of Objects
-cartItems.isin | fund isin | String | INF336L01NV5
-cartItems.name | fund name | String | HSBC Focused Fund - Direct Growth
-cartItems.assetCategory | asset category | String | MIDCAP
-cartItems.oneTimeOrSIP | purchase or sip or swp or stp or switch or redeem | Object | Object
-cartItems.oneTimeOrSIP.oneTimeTenureInMonths | tenure in month | int32 | 12
-cartItems.oneTimeOrSIP.sipDayOfMonth | day of the month | int32 | 1
-cartItems.oneTimeOrSIP.amount | amount | Double | 5000
-cartItems.oneTimeOrSIP.investmentType | investment type | String | BUY
-cartItems.oneTimeOrSIP.sipStartDate | SIP start date | Date | 2023-12-01T00:00:00.000Z
-cartItems.oneTimeOrSIP.sipEndDate | SIP end date | Date | 2024-05-01T00:00:00.000Z
-cartItems.oneTimeOrSIP.sipInterval | SIP interval | String | MONTHLY
-cartItems.oneTimeOrSIP.sipIsPerpetual | if SIP perpetual | boolean | true
-cartItems.oneTimeOrSIP.transferTo | target fund | String | INF760K01DU1 
-cartItems.oneTimeOrSIP.redeemOrSwitchOption | redeem option | String | E - All Units, A - Specific Amount, U - Specific Units
-cartItems.oneTimeOrSIP.redeemOrSwitchUnits | number of units | String | 5
-cartItems.oneTimeOrSIP.redeemOrSwitchAmount | amount | String | 500
-cartItems.portfolioId | portfolio ID | String | 02
-cartItems.folioId | folio ID | String | ABC
-cartItems.bankAccountNo | back account number | String | 8762356784763
-cartItems.isFormFilled | if form filled | boolean | true
-cartItems.isPayoutChecked | if payout checked | boolean | false
-meta | metadata | Object | Object
-meta.created | created date| Date | 2023-12-05T10:11:12.315Z
-meta.lastModified | last modified | Date | 2023-12-05T10:11:12.315Z
-schemaVer | schema version | String | 1
+field | description | characteristics | is enum | example
+------|-------------|-----------------|---------|---------
+_id | identifier | String | no | 52CF06LF
+uccCode | user identity | String | no | 52CF06LF
+wishlistItems | wishlist items | Array | no | Array of Objects
+wishlistItems.isin | fund isin | String | no | INF760K01DU1
+wishlistItems.name | fund name | String | no | Parag Parikh Tax Saver Fund- Direct Growth
+wishlistItems.assetClass | asset class | String | yes - com.fintrust.allfunds.commons.enums.AssetClassType | EQUITY
+wishlistItems.assetCategory | asset category | String | no | MIDCAP
+compareItems | compare items | Array | no | Array of Objects
+compareItems.isin | fund isin | String | no | INF879O01100
+compareItems.assetClass | asset class | String | yes - com.fintrust.allfunds.commons.enums.AssetClassType | EQUITY
+cartItems | cart items | Array | no | Array of Objects
+cartItems.isin | fund isin | String | no | INF336L01NV5
+cartItems.name | fund name | String | no | HSBC Focused Fund - Direct Growth
+cartItems.assetClass | asset class | String | yes - com.fintrust.allfunds.commons.enums.AssetClassType | EQUITY
+cartItems.assetCategory | asset category | String | no | MIDCAP
+cartItems.oneTimeOrSIP | purchase or sip or swp or stp or switch or redeem | Object | no | Object
+cartItems.oneTimeOrSIP.oneTimeTenureInMonths | tenure in month | int32 | no | 12
+cartItems.oneTimeOrSIP.sipDayOfMonth | day of the month | int32 | no | 1
+cartItems.oneTimeOrSIP.amount | amount | Double | no | 5000
+cartItems.oneTimeOrSIP.investmentType | investment type | String | no | BUY
+cartItems.oneTimeOrSIP.sipStartDate | SIP start date | Date | no | 2023-12-01T00:00:00.000Z
+cartItems.oneTimeOrSIP.sipEndDate | SIP end date | Date | no | 2024-05-01T00:00:00.000Z
+cartItems.oneTimeOrSIP.sipInterval | SIP interval | String | no | MONTHLY
+cartItems.oneTimeOrSIP.sipIsPerpetual | if SIP perpetual | boolean | no | true
+cartItems.oneTimeOrSIP.transferTo | target fund | String | no | INF760K01DU1 
+cartItems.oneTimeOrSIP.redeemOrSwitchOption | redeem option | String | no | E - All Units, A - Specific Amount, U - Specific Units
+cartItems.oneTimeOrSIP.redeemOrSwitchUnits | number of units | String | no | 5
+cartItems.oneTimeOrSIP.redeemOrSwitchAmount | amount | String | no | 500
+cartItems.portfolioId | portfolio ID | String | no | 02
+cartItems.folioId | folio ID | String | no | ABC
+cartItems.bankAccountNo | back account number | String | no | 8762356784763
+cartItems.isFormFilled | if form filled | boolean | no | true
+cartItems.isPayoutChecked | if payout checked | boolean | no | false
+meta | metadata | Object | no | Object
+meta.created | created date| Date | no | 2023-12-05T10:11:12.315Z
+meta.lastModified | last modified | Date | no | 2023-12-05T10:11:12.315Z
+schemaVer | schema version | String | no | 1
 
 ## sfa_token
 
@@ -506,15 +507,15 @@ sfa_token collection stores sfa_token, User ID, device ID, fcm token etc.
 
 ### dictionary
 
-field | description | characteristics | example
-------|-------------|-----------------|----------
-_id | identifier | ObjectId | 65b8a2d4b99e8a50536a7121
-deviceId | device login id | String | c2749b2874fcefd9
-expires | token expire time | Date | 2024-04-29T07:18:44.327Z
-fcmToken | fire base cloud messaging token | String | dwF-1wLtSQewAAHCBQksgc:APA91bEv_xmQwoycrG4V1k3rGm32JrEg0U2fbm2ig5JeRz8gwzErf8RTydC4uNKjgLwWUEs8p0SnDnTc-vid8MrPodfkuonycYKsjK7Rt0gtUTtBy7O7IBUgaPkfkPU178EzklQBfrrA
-token | sfa token | String | eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL21mQXV0aCIsInN1YiI6IlRRQkpYWlU3VlBXSiIsImdyb3VwcyI6WyJTRkEtVVNFUiJdLCJkZXZpY2VJRCI6ImMyNzQ5YjI4NzRmY2VmZDkiLCJpYXQiOjE3MDY1OTkxMjQsImV4cCI6MTcxNDM3NTEyNCwianRpIjoiODg5Mzc1MmEtOTI3Zi00OTg2LThiNmUtZTdhYTNmYWE0ZmEyIn0.M1lfgoqT8T8jvrW3woC7mkZxovZmyBFl9uEQULmu0696p_i8CRoHuzGeFdZn5d3s0n4_BsbDqSIiwhUlR0c8ghW-NldLSLW_geUUc72tl9M1LnWuM81ghgd-786RwemuUuOt7IzZsioziiuvihM7wDnuVK5N_AD2BD0ZHqPD9TukyjLBotGZKS2qoHdkhiqUmZ183_HWwVimZ7aqNK36XSCON17Gbf5typ6QRwbwwcV4kNVPwOR2OX4bhZ2lmQufgE-QOi70FI1P7KA8iEwNtjz3J87sHBXR5XY0u5P9pik0JMEjQCkxpFwTZ_kpkjUpdpaSCmjlWfxeMJarL2FI8A
-userAgent | agent name | String | OnePlus OnePlus EB2101
-userId | user Id | String | TQBJ-XZU7-VPWJ
+field | description | characteristics | is enum | example
+------|-------------|-----------------|---------|----------
+_id | identifier | ObjectId | no | 65b8a2d4b99e8a50536a7121
+deviceId | device login id | String | no | c2749b2874fcefd9
+expires | token expire time | Date | no | 2024-04-29T07:18:44.327Z
+fcmToken | fire base cloud messaging token | String | no | dwF-1wLtSQewAAHCBQksgc:APA91bEv_xmQwoycrG4V1k3rGm32JrEg0U2fbm2ig5JeRz8gwzErf8RTydC4uNKjgLwWUEs8p0SnDnTc-vid8MrPodfkuonycYKsjK7Rt0gtUTtBy7O7IBUgaPkfkPU178EzklQBfrrA
+token | sfa token | String | no | eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL21mQXV0aCIsInN1YiI6IlRRQkpYWlU3VlBXSiIsImdyb3VwcyI6WyJTRkEtVVNFUiJdLCJkZXZpY2VJRCI6ImMyNzQ5YjI4NzRmY2VmZDkiLCJpYXQiOjE3MDY1OTkxMjQsImV4cCI6MTcxNDM3NTEyNCwianRpIjoiODg5Mzc1MmEtOTI3Zi00OTg2LThiNmUtZTdhYTNmYWE0ZmEyIn0.M1lfgoqT8T8jvrW3woC7mkZxovZmyBFl9uEQULmu0696p_i8CRoHuzGeFdZn5d3s0n4_BsbDqSIiwhUlR0c8ghW-NldLSLW_geUUc72tl9M1LnWuM81ghgd-786RwemuUuOt7IzZsioziiuvihM7wDnuVK5N_AD2BD0ZHqPD9TukyjLBotGZKS2qoHdkhiqUmZ183_HWwVimZ7aqNK36XSCON17Gbf5typ6QRwbwwcV4kNVPwOR2OX4bhZ2lmQufgE-QOi70FI1P7KA8iEwNtjz3J87sHBXR5XY0u5P9pik0JMEjQCkxpFwTZ_kpkjUpdpaSCmjlWfxeMJarL2FI8A
+userAgent | agent name | String | no | OnePlus OnePlus EB2101
+userId | user Id | String | no | TQBJ-XZU7-VPWJ
 
 
 ## mfu_profiles
