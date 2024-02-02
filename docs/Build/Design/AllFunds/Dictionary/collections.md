@@ -881,3 +881,261 @@ bankDetails.ifscCode | ifsc code | String | no | to be given
 bankDetails.micrCode | micr code | String | no | to be given
 bankDetails.proofType | proof type | [BankProofType](https://gitlabnew.techwave.net/fintrust/af-profile/-/blob/main/src/main/java/com/fintrust/allfunds/profile/impl/enums/BankProofType.java) | yes | to be given
 bankDetails.bankEventType | bank event type | [BankEventType](https://gitlabnew.techwave.net/fintrust/af-profile/-/blob/main/src/main/java/com/fintrust/allfunds/profile/impl/enums/BankEventType.java) | yes | to be given
+
+## orders
+orders collection stores all aspect of transaction apis of order like Purchase, SWP, STP, SWP, Redeem and Switch.
+
+### example
+```json
+{
+  "_id": "Z1B1LRY1O7VQGWMRY4LR",
+  "can": "14167AZA01",
+  "orderCreatedDate": "2024-02-01T09:22:29.660Z",
+  "redeemItems": [
+    {
+      "accountNumber": "50200013404502",
+      "amount": "1200.0",
+      "assetClassType": "EQUITY",
+      "folioId": "AZA011416727",
+      "ifscCode": "HDFC0000090",
+      "isin": "INF090I01742",
+      "micrCode": "110240012",
+      "name": "HDFC BANK LTD",
+      "volumeType": "A"
+    }
+  ],
+  "statusType": "CREATED",
+  "transactionType": "REDEEM",
+  "userId": "TQBJXZU7VPWJ"
+}
+```
+
+### visual
+```puml
+@startjson
+{
+  "_id": "Z1B1LRY1O7VQGWMRY4LR",
+  "can": "14167AZA01",
+  "orderCreatedDate": "2024-02-01T09:22:29.660Z",
+  "redeemItems": [
+    {
+      "accountNumber": "50200013404502",
+      "amount": "1200.0",
+      "assetClassType": "EQUITY",
+      "folioId": "AZA011416727",
+      "ifscCode": "HDFC0000090",
+      "isin": "INF090I01742",
+      "micrCode": "110240012",
+      "name": "HDFC BANK LTD",
+      "volumeType": "A"
+    }
+  ],
+  "statusType": "CREATED",
+  "transactionType": "REDEEM",
+  "userId": "TQBJXZU7VPWJ"
+}
+@endjson
+```
+
+### dictionary
+fields | description | characteristics | is enum | example
+-------|-------------|-----------------|---------|----------
+_id | external group order reference number as identifier | String | no | Z1B1-LRY1-O7VQ-GWMR-Y4LR
+userId | all funds user Id | String | no | TQBJ-XZU7-VPWJ
+can | common account number | String | no | 14167AZA01
+portfolioId | portfolio Id | String | no | 01
+mfuGroupOrderReferenceNumber | mfu group order reference number | String | no | to be given
+orderCreatedDate | order created date | Date | no | 2024-02-01T09:22:29.660Z
+orderSentDate | order sent date | Date | no | 2024-02-01T09:22:29.660Z
+statusType | status type | [OrderStatusType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/OrderStatusType.java) | yes | CREATED
+transactionType | transaction type | [TransactionType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/TransactionType.java) | yes | REDEEM
+orderResponse | order response | Object | no | Object
+orderResponse.txnRespCodeDetail | transaction response code detail | Object | no | Object
+orderResponse.txnRespCodeDetail.errorFlag | error flag | String | no | to be given
+orderResponse.txnRespCodeDetail.errorCode | error code | String | no | to be given
+orderResponse.txnRespCodeDetail.errorMsg | error message | String | no | to be given
+orderResponse.groupOrderNo | group order no | String | no | to be given
+orderResponse.orderDate | order date | String | no | to be given
+orderResponse.lastModifiedDate | last modified date | String | no | to be given
+orderResponse.lastModifiedTime | last modified time | String | no | to be given
+orderResponse.paymentFlag | payment flag | String | no | to be given
+orderResponse.submitToPosFlag | to be given | String | no | to be given
+orderResponse.txnApproveFlag | transaction approve flag | String | no | to be given
+orderResponse.bankRefFlag | bank reference flag | String | no | to be given
+orderResponse.bankTxnRefNo | bank transaction reference number | String | no | to be given
+orderResponse.virtualAccNo | virtual account number | String | no | to be given
+orderResponse.virtAccIfsc | virtual account ifsc | String | no | to be given
+orderResponse.appLinkPrim | app link primary | String | no | to be given
+orderResponse.appLinkH1 | to be given | String | no | to be given
+orderResponse.appLinkH2 | to be given | String | no | to be given
+orderResponse.appLinkPOA | to be given | String | no | to be given
+orderResponse.netBankingLink | net banking link | String | no | to be given
+orderResponse.payItrnSplitList | to be given | Array of Objects | no | Array of Objects
+orderResponse.payItrnSplitList.accName | account name | String | no | to be given
+orderResponse.payItrnSplitList.accType | account type | String | no | to be given
+orderResponse.payItrnSplitList.amcPayID | amc pay Id | String | no | to be given
+orderResponse.payItrnSplitList.ifsc | ifsc code | String | no | to be given
+orderResponse.payItrnSplitList.invAccNo | to be given | String | no | to be given
+orderResponse.payItrnSplitList.itrn | to be given | String | no | to be given
+orderResponse.payItrnSplitList.itrnAmt | to be given | String | no | to be given
+orderResponse.payItrnSplitList.rtaAmcCode | rta amc code | String | no | to be given
+orderResponse.payItrnSplitList.rtaSchCode | to be given | String | no | to be given
+orderResponse.payItrnSplitList.uniqPayItrnRefNo | to be given | String | no | to be given
+orderResponse.payItrnSplitList.usrTxnRefNo | to be given | String | no | to be given
+
+## outbox
+to be provided 
+
+## portfolio
+portfolio collection stores assets of a user.
+
+
+### example
+```json
+{
+  "_id": "65a11d232d810368f1df3bee",
+  "custmerId": "H76C6ZRJV9VV",
+  "distribution": {
+    "commodity": 0,
+    "debt": 40,
+    "equity": 60
+  },
+  "draft": true,
+  "investmentApproach": "Moderate",
+  "meta": {
+    "created": "1706078825523",
+    "lastModified": "0",
+    "schemaVer": "1"
+  },
+  "oneTimeOrSIP": {
+    "amount": 50000,
+    "investmentType": "ONETIME",
+    "oneTimeTenureInMonths": 120,
+    "sipDayOfMonth": 0,
+    "sipIsPerpetual": false
+  },
+  "questions": [
+    {
+      "questionId": "1",
+      "selectedOption": 2
+    },
+    {
+      "questionId": "2",
+      "selectedOption": 3
+    },
+    {
+      "questionId": "3",
+      "selectedOption": 2
+    },
+    {
+      "questionId": "4",
+      "selectedOption": 3
+    },
+    {
+      "questionId": "5",
+      "selectedOption": 3
+    },
+    {
+      "questionId": "6",
+      "selectedOption": 2
+    },
+    {
+      "questionId": "7",
+      "selectedOption": 3
+    }
+  ]
+}
+```
+
+
+### visual
+```puml
+@startjson
+{
+  "_id": "65a11d232d810368f1df3bee",
+  "custmerId": "H76C6ZRJV9VV",
+  "distribution": {
+    "commodity": 0,
+    "debt": 40,
+    "equity": 60
+  },
+  "draft": true,
+  "investmentApproach": "Moderate",
+  "meta": {
+    "created": "1706078825523",
+    "lastModified": "0",
+    "schemaVer": "1"
+  },
+  "oneTimeOrSIP": {
+    "amount": 50000,
+    "investmentType": "ONETIME",
+    "oneTimeTenureInMonths": 120,
+    "sipDayOfMonth": 0,
+    "sipIsPerpetual": false
+  },
+  "questions": [
+    {
+      "questionId": "1",
+      "selectedOption": 2
+    },
+    {
+      "questionId": "2",
+      "selectedOption": 3
+    },
+    {
+      "questionId": "3",
+      "selectedOption": 2
+    },
+    {
+      "questionId": "4",
+      "selectedOption": 3
+    },
+    {
+      "questionId": "5",
+      "selectedOption": 3
+    },
+    {
+      "questionId": "6",
+      "selectedOption": 2
+    },
+    {
+      "questionId": "7",
+      "selectedOption": 3
+    }
+  ]
+}
+@endjson
+```
+
+
+### dictionary
+fields | description | characteristics | is enum | example
+-------|-------------|-----------------|---------|----------
+_id | Id | unique Id | Object | no | 65a907018919ff20f94ba57a
+draft | if drafted | boolean | no | true
+label | label name of portfolio | String | to be provided
+custmerId | customer Id |  String | no | 52B5-50K0-L1ES
+investmentApproach | investment approach | String | no | aggressive
+distribution | distribution | Object | no | Object
+distribution.commodity | asset distribution in commodity | int | no | 0
+distribution.equity | asset distribution in equity | int | no | 60
+distribution.debt | asset distribution in debt | int | no | 40
+questions | array of questions | array of questions | no | array of questions
+questions.selectedOption | selected option | int | no | 2
+questions.questionId | question Id | String | no | 7
+oneTimeOrSIP | one time or sip or swp or switch or redeem or buy | Object | no | Object
+oneTimeOrSIP.oneTimeTenureInMonths | tenure in month | int | no | 12
+oneTimeOrSIP.sipDayOfMonth | day of the month | int | no | 3
+oneTimeOrSIP.amount | amount | Double | no | 5000
+oneTimeOrSIP.investmentType | investment type | String | no | ONETIME
+oneTimeOrSIP.sipStartDate | sip start date | Date | no | 2023-09-07T00:00:00.000Z
+oneTimeOrSIP.sipEndDate | sip end date | Date | no | 2024-03-10T00:00:00.000Z
+oneTimeOrSIP.sipInterval | sip interval | String | no | QUARTERLY
+oneTimeOrSIP.sipIsPerpetual | sip is perpetual | boolean | no | true
+meta | meta | Object | no | Object
+meta.created | created at | int 64 | no | 1706078825523
+meta.lastModified. last modified at | int 64 | no | 0
+meta.schemaVer | schema version | String | no | 1
+
+## transaction
+transaction collection stores request and response of mfu orders and maintain transaction status.
