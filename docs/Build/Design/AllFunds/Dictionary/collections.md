@@ -519,6 +519,7 @@ userId | user Id | String | no | TQBJ-XZU7-VPWJ
 
 
 ## mfu_profiles
+
 mfu_profiles collection user details against mfu profile.
 
 ### example 
@@ -1111,9 +1112,9 @@ portfolio collection stores assets of a user.
 ### dictionary
 fields | description | characteristics | is enum | example
 -------|-------------|-----------------|---------|----------
-_id | Id | unique Id | Object | no | 65a907018919ff20f94ba57a
+_id | Id | Object | no | 65a907018919ff20f94ba57a
 draft | if drafted | boolean | no | true
-label | label name of portfolio | String | to be provided
+label | label name of portfolio | String | no | to be provided
 custmerId | customer Id |  String | no | 52B5-50K0-L1ES
 investmentApproach | investment approach | String | no | aggressive
 distribution | distribution | Object | no | Object
@@ -1134,8 +1135,129 @@ oneTimeOrSIP.sipInterval | sip interval | String | no | QUARTERLY
 oneTimeOrSIP.sipIsPerpetual | sip is perpetual | boolean | no | true
 meta | meta | Object | no | Object
 meta.created | created at | int 64 | no | 1706078825523
-meta.lastModified. last modified at | int 64 | no | 0
+meta.lastModified | last modified at | int 64 | no | 0
 meta.schemaVer | schema version | String | no | 1
 
 ## transaction
 transaction collection stores request and response of mfu orders and maintain transaction status.
+
+### example
+
+```json
+{
+  "_id": "ZZUG1EA2ZFE5K2NUF4WM",
+  "executor": {
+    "mfu": {
+      "mfuItrnNo": "01",
+      "orderId": "A98JHU9827JHF8726HI3"
+    }
+  },
+  "isin": "INF204K01ZP3",
+  "panNumber": "BTCPK4218U",
+  "redeem": {
+    "accountNumber": "1233",
+    "ifscCode": "UTBI0BEC13",
+    "micrCode": "123456789",
+    "volumeType": "E"
+  },
+  "status": "FAILED",
+  "transactionType": "REDEEM",
+  "txDate": "2024-01-23T08:19:05.164Z",
+  "userId": "JHMJDETS"
+}
+```
+### visual
+
+```puml
+@startjson
+{
+  "_id": "ZZUG1EA2ZFE5K2NUF4WM",
+  "executor": {
+    "mfu": {
+      "mfuItrnNo": "01",
+      "orderId": "A98JHU9827JHF8726HI3"
+    }
+  },
+  "isin": "INF204K01ZP3",
+  "panNumber": "BTCPK4218U",
+  "redeem": {
+    "accountNumber": "1233",
+    "ifscCode": "UTBI0BEC13",
+    "micrCode": "123456789",
+    "volumeType": "E"
+  },
+  "status": "FAILED",
+  "transactionType": "REDEEM",
+  "txDate": "2024-01-23T08:19:05.164Z",
+  "userId": "JHMJDETS"
+}
+@endjson
+```
+### dictionary
+fields | description | characteristics | is enum | example
+-------|-------------|-----------------|---------|---------
+_id | external transaction reference number as id | String | no | ZZUG-1EA2-ZFE5-K2NU-F4WM
+isin | fund isin | String | no | INF204K01ZP3
+userId | user Id | String | no | JHMJDETS
+portfolioId | portfolio Id | String | no | 01
+status | transaction status type | [TransactionStatusType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/TransactionStatusType.java) | yes | FAILED
+transactionType | transaction type | [TransactionType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/TransactionType.java) | yes | REDEEM
+txDate | transaction date | Date | no | 2024-01-23T08:19:05.164Z
+panNumber | pan number | String | no | BTCPK4218U
+accounting | accounting detail | Object | no | Object
+accounting.remarks | remark | String | no | to be given
+accounting.folioNumber | folio number | String | no | to be given
+purchase | purchase details | Object | no | Object
+purchase.tenureInMonths | tenure in month | int | no | to be given
+purchase.amount | amount | decimal | no | 5000
+sip | systematic investment plan details | Object | no | Object
+sip.frequency | frequency | [FrequencyType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/FrequencyType.java) | yes | D
+sip.day | day | String | no | 1
+sip.startDate | start date | Date | no | to be given
+sip.endDate | end date | Date | no | to be given
+sip.amount | amount | Decimal | no | to be given
+swp | systematic withdrawal plan details | Object | no | Object
+swp.startDate | start date | Date | no | to be given
+swp.endDate | end date | Date | no | to be given
+swp.dayOfMonth | day of the month | Date | no | to be given 
+swp.frequencyType | frequency type | [FrequencyType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/FrequencyType.java) | yes | D
+swp.amount | amount | Decimal | no | 5000
+stp | systematic transfer plan details | Object | no | Object
+stp.tarIsin | target isin | String | no | to be given
+stp.tarName | target fund name | String | no | to be given
+stp.tarAssetClassType | asset class type | String | no | to be given
+stp.frequency | frequency type | [FrequencyType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/FrequencyType.java) | yes | D
+stp.day | day | String | no | 4
+stp.startDate | start date | Date | no | to be given
+stp.endDate | end date | Date | no | to be given
+stp.amount | amount | Decimal | no | to be given
+switchFund | switch | Object | no | Object
+switchFund.tarIsin | target isin | String | no | to be given
+switchFund.tarName | target fund name | String | no | to be given
+switchFund.tarAssetClassType | target asset class type | [AssetClassType](https://gitlabnew.techwave.net/fintrust/af-commons/-/blob/main/src/main/java/com/fintrust/allfunds/commons/enums/AssetClassType.java) | no | EQUITY
+switchFund.tarAssetCategory | target asset category | String | no | Large cap
+switchFund.amount | amount | Decimal | no | to be given
+switchFund.units | units | Decimal | no | to be given
+switchFund.volumeType | volume type | [VolumeType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/VolumeType.java) | no | E
+redeem | redeem | Object | no | Object
+redeem.payoutFlag | payout flag | String | no | to be given
+redeem.amount | redeem amount | Decimal | no | to be given
+redeem.units | units | Decimal | no | to be given
+redeem.volumeType | volume type | [VolumeType](https://gitlabnew.techwave.net/fintrust/af-portfolio/-/blob/main/src/main/java/com/fintrust/allfunds/portfolio/impl/enums/VolumeType.java) | no | to be given
+redeem.accountNumber | account number | String | no | to be given
+redeem.ifscCode | ifsc code | String | no | to be given
+redeem.micrCode | micr code | String | no | to be given
+executor | executor | Object | no | Object
+executor.mfu | mfu | Object | no | Object
+executor.mfu.orderId | order Id | String | no | to be given
+executor.mfu.mfuOrderRef | mfu order reference | String | no | to be given
+executor.mfu.mfuItrnNo | mfu itr number | String |no | to be given
+executor.mfu.mfuOrderDate | mfu order date | String | no | to be given
+executor.mfu.mfuStatus | mfu status | String | no | to be given
+executor.mfu.systematicCancel | systematic cancel | Object | no | to be given
+executor.mfu.systematicCancel.mfuSCOrderId | mfu sc order id | String | no | to be given
+executor.mfu.systematicCancel.mfuSCOrderRef | mfu sc order ref | String | no | to be given
+executor.mfu.systematicCancel.mfuSCOrderDate | mfu sc oder date | String | no | to be given
+executor.mfu.systematicCancel.mfuLastModDate | mfu last mod date | String | no | to be given
+executor.mfu.systematicCancel.mfuLastModTime | mfu last mod time | String | no | to be given
+
