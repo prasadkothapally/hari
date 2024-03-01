@@ -3,9 +3,9 @@ site_url: http://localhost:8080
 repo_url: https://gitlabnew.techwave.net/fintrust/wiki.git
 edit_uri: https://gitlabnew.techwave.net/fintrust/wiki/-/edit/main/docs/
 
-theme: readthedocs
-#theme:
-#  name: material
+#theme: readthedocs
+theme:
+  name: material
 markdown_extensions:
   - toc:
       permalink: "#"
