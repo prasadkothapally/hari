@@ -2,20 +2,27 @@
 
 Following are the softwares along with their versions running in Build environment
 
+  -----------------------------------------
   Software             |     Version
   -----------------------------------------
   Gitlab-runner        |  16.2.0
+  -----------------------------------------
   aws-cli              |  2.15.21
+  -----------------------------------------
   docker               |  20.10.21
+  -----------------------------------------
   reposolite           |  3.4.10
+  -----------------------------------------
   Makedocs             |  1.5.3
+  -----------------------------------------
   SonarQube            |  9-community
+  -----------------------------------------
   helm                 |  v3.14.2
+  -----------------------------------------
   
-  
- #### **Setup of Gitlab-Runner**
+#### **Setup of Gitlab-Runner**
     
-	  **Install**
+  **Install**
 	  > sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
       
 	  Give it permissions to execute:
@@ -43,7 +50,7 @@ Following are the softwares along with their versions running in Build environme
       GitLab Runner checks for configuration modifications every 3 seconds and reloads if necessary. GitLab Runner also reloads the configuration in response to the SIGHUP signal.
 	  
 	  
-	  **Register Runner**
+  **Register Runner**
 	  
 	  Prerequisites:
 
@@ -71,7 +78,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  
 	  
-	  **Update the Gitlab-runner**
+  **Update the Gitlab-runner**
 	  1.Stop the service (we need elevated command prompt as before):
 	  > sudo gitlab-runner stop
 
