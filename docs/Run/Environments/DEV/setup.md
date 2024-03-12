@@ -16,16 +16,21 @@ Following are the softwares along with their versions running in Build environme
 #### **Setup of Gitlab-Runner**
     
   **Install**
+  
 	  > sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
       
 	  * Give it permissions to execute:
+	  
 	    > sudo chmod +x /usr/local/bin/gitlab-runner
   
       * Create a GitLab CI user:
+	  
 	    > sudo useradd --comment 'gitlab-runner' --create-home gitlab-runner --shell /bin/bash
 
       * Install and run as service:
+	  
 	    > /usr/bin/gitlab-runner run --working-directory /home/gitlab-runner --config /etc/gitlab-runner/config.toml --service gitlab-runner --user gitlab-runner
+		
 	    > sudo gitlab-runner start
 	  
 	  * Advanced configuration
@@ -72,14 +77,19 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  
   **Update the Gitlab-runner**
+  
 	  1.Stop the service (we need elevated command prompt as before):
+	  
 	    > sudo gitlab-runner stop
 
       2. Download the binary to replace the GitLab Runner executable. For example:
+	  
 	    > sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
 
       3. Give it permissions to execute:
+	  
 	    > sudo chmod +x /usr/local/bin/gitlab-runner
 
       4. Start the service:
+	  
 	    > sudo gitlab-runner start
