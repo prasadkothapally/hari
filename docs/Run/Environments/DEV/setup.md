@@ -8,6 +8,7 @@ Following are the softwares along with their versions running in Build environme
   Gitlab-runner        |  16.2.0
   aws-cli              |  2.15.21
   docker               |  20.10.21
+  docker-compose       |  1.29.2
   reposolite           |  3.4.10
   Makedocs             |  1.5.3
   SonarQube            |  9-community
@@ -93,3 +94,182 @@ Following are the softwares along with their versions running in Build environme
       4. Start the service:
 	  
 	    > sudo gitlab-runner start
+		
+#### **Setup of aws-cli**
+
+      The latest AWS CLI version is 2. So download the AWS CLI.
+	  
+	  > curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+	  
+	  Unzip the file using the following command.
+	  
+	  > unzip awscliv2.zip
+	  
+	  Install the AWS CLI using the following command.
+	  
+	  > sudo ./aws/install
+	  
+	  We can get the AWS CLI version using the below command.
+	  
+	  > aws --version
+	  
+	  
+#### **Setup of Docker**
+
+      The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository. To do that, we’ll add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
+
+      First, update your existing list of packages:
+	  
+	  > sudo apt update
+	  
+	  Next, install a few prerequisite packages which let apt use packages over HTTPS:
+	  
+	  > sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	  
+	  Then add the GPG key for the official Docker repository to your system:
+	  
+	  > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	  
+	  Add the Docker repository to APT sources:
+	  
+	  > sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+	  
+	  This will also update our package database with the Docker packages from the newly added repo.
+
+      Make sure to install from the Docker repo instead of the default Ubuntu repo:
+	  
+	  > apt-cache policy docker-ce
+	  
+	  Finally, install Docker:
+	  
+	  > sudo apt install docker-ce
+	  
+	  Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:
+	  
+	  > sudo systemctl status docker
+	  
+#### **Setup of docker-compose**
+
+##### **Prerequisites**
+
+       Make sure Docker installed on server
+	   
+	   Download the executable
+	   
+	   > sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	   
+	   Next, set the correct permissions so that the docker-compose command is executable:
+	   
+	   > sudo chmod +x /usr/local/bin/docker-compose
+	   
+	   To verify that the installation was successful, run:
+	   
+	   > docker-compose --version
+	   
+####  **Setup of helm**
+
+      Use wget to download the latest version of Helm. The download links for all supported architectures are available on the official website.
+
+      > wget https://get.helm.sh/helm-v3.9.3-linux-amd64.tar.gz
+
+      Next, unpack the Helm file using the Linux tar command:
+
+      > tar xvf helm-v3.9.3-linux-amd64.tar.gz
+
+      Move the linux-amd64/helm file to the /usr/local/bin directory:
+
+      > sudo mv linux-amd64/helm /usr/local/bin
+
+      Remove the downloaded file using the following command:
+
+      > rm helm-v3.4.1-linux-amd64.tar.gz	
+
+      Remove the linux-amd64 directory to clean up space by running:
+
+      > rm -rf linux-amd64
+
+      Finally, verify you have successfully installed Helm by checking the version of the software:
+
+      > helm version	
+
+#### **Setup of SonarQube**
+
+      In order to quickly configure and manage the SonarQube server we will be using the docker-compose file which will set up a sonar instance along with the postgres database.
+	  
+	  The docker-compose.yml file is located at the below directory.
+	  
+	  /home/laxmareddykandimalla/Fintrust/sonarqube-docker
+	  
+	  To set up the sonar server along with postgres just run the below command which will pull in all the specified images for sonar and Postgres and will start up the containers using which we can access our server.
+	  
+	  > docker-compose up -d 
+	  
+	  Post running the above command, verify if images are downloaded and containers are up and running using the below commands.
+	  
+	  > docker images
+	  
+	  > docker ps
+	  
+	  Connect to our Sonar server using the instance public-ip address along with the port which we had specified: 9000
+	  
+	  In our case it is http://172.16.8.234:9090
+	  
+	  In order to tear down the complete infra, we can run the below command which will remove all the containers and our server will no longer be accessible.
+	  
+	  > docker-compose down
+	  
+#### **Setup of Reposilite**
+
+##### **Prerequisites**
+ 
+      - Java 8+
+	  
+	  - RAM 12MB+
+
+      Reposilite (formerly NanoMaven) is lightweight repository manager for Maven artifacts. It is a simple solution to replace managers like Nexus, Archiva or Artifactory.
+	  
+	  Download the Reposilite from GitHub release page
+	  
+	  https://github.com/dzikoysk/reposilite/releases
+	  
+	  Reposilite stores data in current working directory, by default it is a place where we've launched it , below is the path.
+	  
+	  /home/laxmareddykandimalla/Fintrust/reposilite
+	  
+	  We have a script to start the reposilte which is located at the below path
+	  
+	  /home/laxmareddykandimalla/Fintrust/reposilite/start-reposilite.sh
+	  
+	  Access it using the below address
+	  
+	  http://172.16.8.234:80
+	  
+	  
+	  
+##### **Add reposilite to the init service and let it run under non-root context using Supervisor
+
+      Begin by updating package sources and installing Supervisor:
+	  
+	  > sudo apt update && sudo apt install supervisor
+	  
+	  The supervisor service runs automatically after installation. You can check its status:
+	  
+	  > sudo systemctl status supervisor
+	  
+	  A best practice for working with Supervisor is to write a configuration file for every program it will handle.
+	  
+	  The per-program configuration files for Supervisor programs are located in the /etc/supervisor/conf.d directory, typically running one program per file and ending in .conf. We’ll create a configuration file for this script, as /etc/supervisor/conf.d/repo.conf:
+	  
+	  Make the script executable
+	  
+	  > chmod +x /etc/supervisor/conf.d/repo.conf
+	  
+	  Once our configuration file is created and saved, we can inform Supervisor of our new program through the supervisorctl command. First we tell Supervisor to look for any new or changed program configurations in the /etc/supervisor/conf.d directory with:
+	  
+	  > sudo supervisorctl reread
+	  
+	  Followed by telling it to enact any changes with:
+	  
+	  > sudo supervisorctl update
+	  
+	  Any time we make a change to any program configuration file, running the two previous commands will bring the changes into effect.
