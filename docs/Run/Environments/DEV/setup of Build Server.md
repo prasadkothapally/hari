@@ -220,7 +220,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 #### **Setup of Reposilite**
 
-##### **Prerequisites**
+      ##### **Prerequisites**
  
       - Java 8+
 	  
@@ -273,3 +273,16 @@ Following are the softwares along with their versions running in Build environme
 	  > sudo supervisorctl update
 	  
 	  Any time we make a change to any program configuration file, running the two previous commands will bring the changes into effect.
+	  
+
+#### **Setup of Makedocs**
+
+     Makesure pip is installed in system
+	 
+	 We have wiki repository available which contains the Dockerfile and makedocs.yml to install and configure the Makedocs.
+	 
+	 - Repository URL : https://gitlabnew.techwave.net/fintrust/wiki
+	 
+	 Check the below documentation for more information
+	 
+	 - https://www.mkdocs.org/getting-started/#getting-started-with-mkdocs
