@@ -150,7 +150,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 #### **Setup of docker-compose**
 
-##### **Prerequisites**
+       > **Prerequisites**
 
        Make sure Docker installed on server
 	   
@@ -220,7 +220,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 #### **Setup of Reposilite**
 
-      ##### **Prerequisites**
+      > **Prerequisites**
  
       - Java 8+
 	  
@@ -246,7 +246,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  
 	  
-##### **Add reposilite to the init service and let it run under non-root context using Supervisor
+##### **Add reposilite to the init service and let it run under non-root context using Supervisor**
 
       Begin by updating package sources and installing Supervisor:
 	  
@@ -275,7 +275,7 @@ Following are the softwares along with their versions running in Build environme
 	  Any time we make a change to any program configuration file, running the two previous commands will bring the changes into effect.
 	  
 
-#### **Setup of Makedocs**
+#### **Setup of Mkdocs**
 
      Makesure pip is installed in system
 	 
