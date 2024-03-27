@@ -21,7 +21,6 @@ Kubernetes tools      | kubectl, helm, helm-dashboard
 Java Artifact store   | Reposilite
 Container Registry    | GitLab CR
 Helm Package Registry | GitLab Package Registry
-Infrastructure as Code| OpenTofu
 API Docs              | Open API 3.0
 
 
@@ -33,6 +32,7 @@ Aspect                | Technology
 App CI/CD             | Fastlane
 App BetaStore         | Firebase AppTester
 Build                 | Gradle
+
 
 ## Application Backend Stack
 
@@ -61,6 +61,7 @@ Job Scheduling        | Kestra (community edition)
 Search                | Embedded Lucene (since we have only 1 search use case)
 API Style             | Restful
 Caching               | In-memory and MongoDB based caching for select use cases
+Sensitive(PI/PII) data| Currently no data is considered sensitive (for example PAN), but this needs to be relooked at. 
 
 
 ## Mobile Application Stack
@@ -74,6 +75,17 @@ Language/Framework    | React Native
 Aspect                | Technology
 ----------------------|------------
 Language/Framework    | ReactJS
+
+
+## Cloud specifics
+
+Aspect                | Technology
+----------------------|------------
+Network security      | Everything in private subnets + SSH Access from Bastion + Bastion whitelisting to Techwave IPs + Individual SSH crdentials
+Infrastructure as Code| OpenTofu (Terraform fork)
+AWS console access    | Restricted to authorized personnel
+
+
 
 
 ## Web Site Stack
