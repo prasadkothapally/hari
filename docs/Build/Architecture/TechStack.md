@@ -49,14 +49,18 @@ Java frameworks       | Quarkus + SpringBoot
 Native builds         | Quarkus + Mandrel for low resource footprint and quick startup
 Authentication        | Custom built 2FA (email/phone+password + mpin)
 Authorization         | Standard webframework supported RBAC (Quarkus / SpringBoot)
-Messaging             | RabbitMQ
-Transactional Outbox  | Implement Mongo CDC for capturing and relaying application events
+Message Broker        | RabbitMQ
+Events                | Transactional Outbox using Mongo CDC for capturing and relaying application events
 Observability         | FluentBit + OpenObserve + AWS ContainerInsights (future)
 Push Notifications    | Google FCM
+SMS Gateway           | TextLocal
+Email Gateway         | No email gateway for now. Plain simple SMTP relay.
 Secrets and Keys      | AWS SSPM (to be implemented)
 Blob store            | AWS S3
 Job Scheduling        | Kestra (community edition)
 Search                | Embedded Lucene (since we have only 1 search use case)
+API Style             | Restful
+Caching               | In-memory and MongoDB based caching for select use cases
 
 
 ## Mobile Application Stack
