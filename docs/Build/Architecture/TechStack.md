@@ -48,13 +48,15 @@ Relational Store      | Postgres for OLTP data store for all transactional data 
 Java frameworks       | Quarkus + SpringBoot
 Native builds         | Quarkus + Mandrel for low resource footprint and quick startup
 Authentication        | Custom built 2FA (email/phone+password + mpin)
-Authorization         | Standard webframework (Quarkus / SpringBoot) RBAC
+Authorization         | Standard webframework supported RBAC (Quarkus / SpringBoot)
 Messaging             | RabbitMQ
 Transactional Outbox  | Implement Mongo CDC for capturing and relaying application events
-Observability         | OpenObserve
+Observability         | FluentBit + OpenObserve + AWS ContainerInsights (future)
 Push Notifications    | Google FCM
 Secrets and Keys      | AWS SSPM (to be implemented)
 Blob store            | AWS S3
+Job Scheduling        | Kestra (community edition)
+Search                | Embedded Lucene (since we have only 1 search use case)
 
 
 ## Mobile Application Stack
