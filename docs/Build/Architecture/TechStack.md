@@ -22,6 +22,7 @@ Java Artifact store   | Reposilite
 Container Registry    | GitLab CR
 Helm Package Registry | GitLab Package Registry
 Infrastructure as Code| OpenTofu
+API Docs              | Open API 3.0
 
 
 
@@ -37,14 +38,24 @@ Build                 | Gradle
 
 Aspect                | Technology
 ----------------------|------------
-Cloud                 | AWS
+Deployment            | AWS (for higher environments such as staging, perf, prod)
+Deployment            | Minikube for DEV environment (1 node - 16 core, 32 GB RAM running on Techwave servers)
+Deployment            | Docker Desktop for Local environment (4 core, 16 GB RAM running on developer machines)
 Preferred Language    | Java
 Alternate Language    | Python to support analytics use cases and Golang for performance for niche components
-MongoDB               | Scalable read / write data store for all end user facing use cases
-Postgres              | OLTP data store for all transactional data and batch processing needs such as Accounting 
+Document Store        | MongoDB for Scalable read / write data store for all end user facing use cases
+Relational Store      | Postgres for OLTP data store for all transactional data and batch processing needs such as Accounting 
 Java frameworks       | Quarkus + SpringBoot
 Native builds         | Quarkus + Mandrel for low resource footprint and quick startup
-Security              | 
+Authentication        | Custom built 2FA (email/phone+password + mpin)
+Authorization         | Standard webframework (Quarkus / SpringBoot) RBAC
+Messaging             | RabbitMQ
+Transactional Outbox  | Implement Mongo CDC for capturing and relaying application events
+Observability         | OpenObserve
+Push Notifications    | Google FCM
+Secrets and Keys      | AWS SSPM (to be implemented)
+Blob store            | AWS S3
+
 
 ## Mobile Application Stack
 
@@ -57,3 +68,11 @@ Language/Framework    | React Native
 Aspect                | Technology
 ----------------------|------------
 Language/Framework    | ReactJS
+
+
+## Web Site Stack
+
+Aspect                | Technology
+----------------------|------------
+Headless CMS          | Strapi
+Site                  | Gatsby generated static site (because site contains only a handful of pages)
