@@ -7,7 +7,7 @@ RUN pip install fontawesome-markdown
 RUN pip install mkdocs-material
 RUN pip install mkdocs-mermaid2-plugin
 RUN pip install mkdocs-swagger-ui
-#RUN pip install mkdocs-page-pdf
+RUN pip install mkdocs-print-site-plugin
 
 COPY ./docs /docs
 ADD ./mkdocs.yml /
