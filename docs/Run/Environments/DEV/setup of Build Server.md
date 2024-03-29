@@ -1,4 +1,4 @@
-### **Setup of Build Server**
+# **Setup of Build Server**
 
 Following are the softwares along with their versions running in Build environment
 
@@ -14,7 +14,7 @@ Following are the softwares along with their versions running in Build environme
   SonarQube            |  9-community
   helm                 |  v3.14.2
   
-#### **Setup of Gitlab-Runner**
+### **Setup of Gitlab-Runner**
     
   **Install**
   
@@ -95,7 +95,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	    > sudo gitlab-runner start
 		
-#### **Setup of aws-cli**
+### **Setup of aws-cli**
 
       The latest AWS CLI version is 2. So download the AWS CLI.
 	  
@@ -114,7 +114,7 @@ Following are the softwares along with their versions running in Build environme
 	  > aws --version
 	  
 	  
-#### **Setup of Docker**
+### **Setup of Docker**
 
       The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository. To do that, we’ll add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 
@@ -148,7 +148,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  > sudo systemctl status docker
 	  
-#### **Setup of docker-compose**
+### **Setup of docker-compose**
 
        > **Prerequisites**
 
@@ -166,7 +166,7 @@ Following are the softwares along with their versions running in Build environme
 	   
 	   > docker-compose --version
 	   
-####  **Setup of helm**
+###  **Setup of helm**
 
       Use wget to download the latest version of Helm. The download links for all supported architectures are available on the official website.
 
@@ -192,7 +192,7 @@ Following are the softwares along with their versions running in Build environme
 
       > helm version	
 
-#### **Setup of SonarQube**
+### **Setup of SonarQube**
 
       In order to quickly configure and manage the SonarQube server we will be using the docker-compose file which will set up a sonar instance along with the postgres database.
 	  
@@ -218,7 +218,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  > docker-compose down
 	  
-#### **Setup of Reposilite**
+### **Setup of Reposilite**
 
       > **Prerequisites**
  
@@ -246,7 +246,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  
 	  
-##### **Add reposilite to the init service and let it run under non-root context using Supervisor**
+#### **Add reposilite to the init service and let it run under non-root context using Supervisor**
 
       Begin by updating package sources and installing Supervisor:
 	  
@@ -275,7 +275,7 @@ Following are the softwares along with their versions running in Build environme
 	  Any time we make a change to any program configuration file, running the two previous commands will bring the changes into effect.
 	  
 
-#### **Setup of Mkdocs**
+### **Setup of Mkdocs**
 
      Makesure pip is installed in system
 	 

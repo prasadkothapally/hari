@@ -1,4 +1,4 @@
-### **Setup of Dev Replication Server**
+# **Setup of Dev Replication Server**
 
 Following are the softwares along with their versions running in Build environment
 
@@ -7,7 +7,7 @@ Following are the softwares along with their versions running in Build environme
   Docker               |   24.0.7
   docker-compose       |   1.29.2
   
-#### **Setup of Docker**
+### **Setup of Docker**
 
   The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository. To do that, we’ll add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 
@@ -41,7 +41,7 @@ Following are the softwares along with their versions running in Build environme
 	  
 	  $ sudo systemctl status docker
 	  
-#### **Setup of docker-compose**
+### **Setup of docker-compose**
 
       **Prerequisites**
 

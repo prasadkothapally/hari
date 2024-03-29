@@ -1,4 +1,4 @@
-### **Setup of Dev Server**
+# **Setup of Dev Server**
 
 Following are the softwares along with their versions running in the DEV 
 
@@ -11,7 +11,7 @@ Following are the softwares along with their versions running in the DEV
   caddy                |     v2.6.4
   kestra               |     kestra/kestra:latest-full
 
-#### **Setup of Docker**
+### **Setup of Docker**
 
       The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository. To do that, we’ll add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 
@@ -45,7 +45,7 @@ Following are the softwares along with their versions running in the DEV
 	  
 	  $ sudo systemctl status docker
 	  
-#### **Setup of minikube**
+### **Setup of minikube**
 
       Minikube is an open source tool that allows you to set up a single-node Kubernetes cluster on our local machine. The cluster is run inside a virtual machine and includes Docker, allowing us to run containers inside the node.
 
@@ -99,7 +99,7 @@ Following are the softwares along with their versions running in the DEV
 	  $ minikube delete --all
 
 
-#### **Setup of Kubectl**
+### **Setup of Kubectl**
 
      To deploy and manage clusters, we need to install kubectl, the official command line tool for Kubernetes.
 	 
@@ -120,7 +120,7 @@ Following are the softwares along with their versions running in the DEV
 	 $ kubectl version --short
 	 
 
-#### **Setup of HAPROXY**
+### **Setup of HAPROXY**
 
      HAProxy, which stands for High Availability Proxy, is a popular open source software TCP/HTTP Load Balancer and proxying solution which can be run on Linux, macOS, and FreeBSD.
 	   
@@ -144,7 +144,7 @@ Following are the softwares along with their versions running in the DEV
 	 
 	 haproxy -v
 	 
-#### **Setup of Caddy**
+### **Setup of Caddy**
 
      Caddy is a powerful, extensible platform to serve your sites, services, and apps
 	 
