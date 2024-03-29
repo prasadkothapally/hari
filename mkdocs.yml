@@ -25,7 +25,5 @@ plugins:
     num_workers: 8
  - mermaid2:
  - print-site:
-    add_to_navigation: true
-    print_page_title: 'Print Site'
      
 
