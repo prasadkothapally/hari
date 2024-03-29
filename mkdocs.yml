@@ -24,4 +24,4 @@ plugins:
     puml_url: https://www.plantuml.com/plantuml/
     num_workers: 8
  - mermaid2:
- - page-to-pdf:
+   # - page-to-pdf:
