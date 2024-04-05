@@ -10,6 +10,7 @@ Following are the softwares along with their versions running in the DEV
   haproxy              |     2.0.31-0ubuntu0.3
   caddy                |     v2.6.4
   kestra               |     kestra/kestra:latest-full
+  openobserve          |     v0.7.0
 
 ### **Setup of Docker**
 
@@ -144,6 +145,18 @@ Following are the softwares along with their versions running in the DEV
 	 
 	 haproxy -v
 	 
+	 acc-api, acc-bo, acc-analytics, mfusessionprovider modules are exposed publicly via HAProxy
+	 
+	 We can find the routes configuration at /etc/haproxy/haproxy.cfg
+	 
+	 To check the status of haproxy, run 
+	 
+	 $ systemctl status haproxy
+	 
+	 After the routes configuration in /etc/haproxy/haproxy.cfg , run the below command so that new routes will be available to access.
+	 
+	 $ systemctl reload haproxy 
+	 
 ### **Setup of Caddy**
 
      Caddy is a powerful, extensible platform to serve your sites, services, and apps
@@ -184,3 +197,161 @@ Following are the softwares along with their versions running in the DEV
 	 For more information, please check the below documentation
 	 
 	 https://caddyserver.com/docs/command-line
+	 
+### **Setup of Kestra**
+
+     The chart repository is available under helm.kestra.io.
+	 
+	 The source code of the charts can be found in the kestra-io/helm-charts repository.
+	 
+	 1. Install the Chart
+	 
+	 helm repo add kestra https://helm.kestra.io/
+	 
+	 By default, the chart will only deploy one Kestra standalone service with only one replica. This means that all Kestra server components will be deployed within a single pod.
+	 
+	 2. Modify the kestra configuration to use the local storage
+	 
+	 configuration:
+	   kestra:
+	     storage:
+           type: local
+           local:
+             base-path: /tmp/kestra/storage/
+			 
+	3. Disable the default postgres deployment available in helm chart, and add our own datasource.
+	
+	configuration:
+	  datasources:
+        postgres:
+          url: jdbc:postgresql://172.16.22.16:5432/accounting?currentSchema=kestra
+          driverClassName: org.postgresql.Driver
+          username: ****
+          password: ****
+		  
+	#### Postgresql
+    postgresql:
+      enabled: false
+      auth:
+        database: kestra
+        username: kestra
+        password: kestra
+      primary:
+        persistence:
+          enabled: false
+          size: 8Gi
+		  
+    4. Disable all other deployments and enable only standalone deployment.
+	
+	### Deployments
+    deployments:
+      webserver:
+        enabled: false
+		kind: Deployment
+	  executor:
+        enabled: false
+        kind: Deployment
+        command: "server executor"
+      indexer:
+        enabled: false
+        kind: Deployment
+        command: "server indexer"
+      scheduler:
+        enabled: false
+        kind: Deployment
+        command: "server scheduler"
+      worker:
+        enabled: false
+        kind: Deployment
+        command: "server worker --thread={{ .Values.deployments.worker.workerThreads }}"
+        terminationGracePeriodSeconds: 60
+        workerThreads: 128
+      standalone:
+        enabled: true
+        kind: Deployment
+        command: "server standalone --worker-thread={{ .Values.deployments.standalone.workerThreads }}"
+        terminationGracePeriodSeconds: 60
+        workerThreads: 128
+		
+	5. Install the helm chart using the below command.
+	
+	$ helm install kestra . -n kestra -f values.yaml
+	
+	6.  Check the deployment, service and configmap using the below command.
+	
+	$ kubectl get deployment -n kestra
+	$ kubectl get svc -n kestra
+	$ kubectl get cm -n kestra
+	
+	7. Create a temporary tunnel by port-forwarding the kestra-service.
+	
+	$ kubectl -n kestra port-forward --address 0.0.0.0 svc/kestra-service 8080:8080
+	
+	8. Access the kestra at the below address
+	 
+	http://172.16.22.22:8080/
+	
+
+### **Setup of Openobserve**
+
+    OpenObserve is a cloud native observability platform (Logs, Metrics, Traces) for real life log data, significantly lower operational cost and ease of use. 
+	It can scale to petabytes of data, is highly performant and allows you to sleep better at night 😀. 
+	Check the more information at https://openobserve.ai/docs/
+	
+	Binaries can be downloaded from releases page for appropriate platform. (https://github.com/openobserve/openobserve/releases)
+	
+    Created a script to run the "openobserve" executable which is available at below path
+	/home/laxma/openobserve/openobserve_start.sh
+	
+	Now point your browser to http://172.16.22.22:5080 and login
+	
+#### **Configure the fluent-bit for the logs aggregation**
+
+    Fluentbit is a lightweight and open-source log forwarder for Kubernetes. It is designed to be fast and efficient.
+	
+	It is also a part of the Fluentd ecosystem, which is a popular open-source log collector.
+	
+	It works by tailing the files that contain the logs you want to forward. It then parses the logs and sends them to the destination you specify. 
+	
+	It can also enrich your logs with additional metadata, such as the Kubernetes pod name, pod ID, and container name
+	
+	1.Install Fluentbit
+	
+	$ helm repo add fluent https://fluent.github.io/helm-charts
+	$ helm repo update
+	$ helm upgrade --install fluent-bit fluent/fluent-bit --namespace fluent-bit --create-namespace
+	
+	This will install FluentBit as a daemonset(A daemonset ensures that one and only one pod runs on every node of the cluster.) and create the necessary service accounts, roles, and configuration needed to run FluentBit on cluster. 
+	Default values in the chart will enrich the logs with additional metadata, such as the Kubernetes pod name, pod ID, and container name.
+	
+	2.Configure FluentBit to Forward Logs to OpenObserve
+	
+	Once FluentBit is installed and running on your Kubernetes cluster, the next step is to configure FluentBit to send logs to OpenObserve
+	OpenObserve supports an HTTP endpoint, and FluentBit has an HTTP output plugin which we can use for this purpose.
+	
+	To do this, we'll need to modify the FluentBit ConfigMap, specifically the OUTPUT section, to include the HTTP output plugin and the OpenObserve endpoint details.
+
+    Head over to OpenObserve UI > Ingestion > Logs > Fluentbit and copy the configuration from there.
+	
+	Get the default configmap for fluentbit that is part of the installation.
+	
+	$ kubectl -n fluent-bit get configmap fluent-bit -o yaml > fluent-bit.yaml
+	
+	This will create a file called fluent-bit.yaml in current directory. Open this file in editor and we will find two sections, for OUTPUT. 
+	Paste the configuration that we got from OpenObserve UI in the fluent-bit.yaml file replacing 2 existing OUTPUT sections.
+	
+	Check the manifest of fluentbit configmap at /home/laxma/openobserve/fluent-bit.yaml
+	
+	3.Apply Changes and Start Forwarding Logs
+	
+	Once ave updated the FluentBit ConfigMap, can apply the changes by running:
+	
+	$ kubectl apply -f fluent-bit.yaml
+	
+	One last step is to restart the FluentBit pods so that they pick up the new configuration
+	
+	$ kubectl delete pods -n fluent-bit -l app.kubernetes.io/name=fluent-bi
+	
+	FluentBit should now begin to forward logs from cluster to the OpenObserve endpoint specified. We can then use OpenObserve UI to view and analyze the logs.
+	
+	Reference doc: https://openobserve.ai/blog/how-to-send-kubernetes-logs-using-fluent-bit/
