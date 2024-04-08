@@ -355,3 +355,28 @@ Following are the softwares along with their versions running in the DEV
 	FluentBit should now begin to forward logs from cluster to the OpenObserve endpoint specified. We can then use OpenObserve UI to view and analyze the logs.
 	
 	Reference doc: https://openobserve.ai/blog/how-to-send-kubernetes-logs-using-fluent-bit/
+	
+	
+#### **Shell Auto-Completion for Kubectl**
+   
+    kubectl provides autocompletion support for Bash, Zsh, Fish, and PowerShell, which can saves a lot of typing.
+	
+	1.Install bash-completion
+	
+	$ apt-get install bash-completion
+	
+	The above commands create /usr/share/bash-completion/bash_completion, which is the main script of bash-completion.
+	
+	Depending on our package manager, we have to manually source this file in our ~/.bashrc file.
+	
+	$ source /usr/share/bash-completion/bash_completion
+	
+	2. Enable kubectl autocompletion
+	
+	Now we need to ensure that the kubectl completion script gets sourced in all our shell sessions.
+	
+	$ echo 'source <(kubectl completion bash)' >>~/.bashrc
+	
+	After reloading our shell, kubectl autocompletion should be working. To enable bash autocompletion in current session of shell, source the ~/.bashrc file:
+	
+	$ source ~/.bashrc
