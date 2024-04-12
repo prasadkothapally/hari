@@ -1,4 +1,6 @@
-#**Openobserve**
+#**Observability**
+
+##**Openobserve**
 
 OpenObserve is a cloud native observability platform (Logs, Metrics, Traces) for real life log data, significantly lower operational cost and ease of use. 
 It can scale to petabytes of data, is highly performant and allows you to sleep better at night 😀. 
