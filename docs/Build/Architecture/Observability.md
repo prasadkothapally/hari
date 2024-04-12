@@ -9,7 +9,9 @@ Binaries can be downloaded from releases page for appropriate platform. (https:/
 ###**Access the Openobserve at the below address**
 
 **URL**: http://172.16.22.22:5080/
+
 **User**: root@example.com
+
 **Password**: Complexpass#123
 
 ###**Steps to fetch the logs**
