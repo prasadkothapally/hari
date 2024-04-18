@@ -12,8 +12,8 @@
 
 4. Add the new connection and enter the below details
 
-   host: localhost
-   port: 5432
+   - host: localhost 
+   - port: 5432
    
 5. Enter the DB credentials ( Username and Password ) which are shared and test the connection.
 
