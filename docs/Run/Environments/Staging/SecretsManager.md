@@ -18,15 +18,14 @@
 
 ### **Sample kubernetes secrets creation using manifest**
 
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: sample-secret
-  namespace: sample
-type: Opaque
-data:
-  #Base64-encoded values
-  POSTGRES_USER: ********
-  POSTGRES_PASSWORD: *******
+apiVersion: v1  
+kind: Secret  
+metadata:  
+  name: sample-secret  
+  namespace: sample  
+type: Opaque  
+data:  
+  #Base64-encoded values  
+  POSTGRES_USER: ********  
+  POSTGRES_PASSWORD: *******  
   
