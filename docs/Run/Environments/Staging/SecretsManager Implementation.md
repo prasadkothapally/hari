@@ -34,38 +34,38 @@ And there are two kinds of SecretStore resources:
 
 #### **Install External Secrets Operator using Helm**
 
-    >helm repo add external-secrets https://charts.external-secrets.io
-    >helm repo update
+    helm repo add external-secrets https://charts.external-secrets.io
+    helm repo update
 
 #### **Install ESO in external-secrets namespace**
 
-    >helm upgrade --namespace external-secrets --create-namespace --install --wait external-secrets external-secrets/external-secrets
+    helm upgrade --namespace external-secrets --create-namespace --install --wait external-secrets external-secrets/external-secrets
 
 #### **Verify ESO installation**
 
-    >kubectl -n external-secrets get all
+    kubectl -n external-secrets get all
 
 #### **Create an IAM user and attach the managed policy**
 
 Now, that we have ESO successfully deployed in the cluster. Let’s create a dedicated AWS IAM user, which will be used to authenticate to AWS and access the secret data from the AWS Secrets Manager.
 
-    >aws iam create-user --user-name external-secrets
+    aws iam create-user --user-name external-secrets
 
 And assign the SecretsManagerReadWrite managed policy to grant the IAM user access to the secrets manager.
 
 For good security hygiene, use the principle of least privilege on production, limiting the permissions for the external-secrets IAM user to only access the needed secrets path and KMS key.
 
-    >aws iam attach-user-policy --user-name external-secrets --policy-arn arn:aws:iam::aws:policy/SecretsManagerReadWrite
+    aws iam attach-user-policy --user-name external-secrets --policy-arn arn:aws:iam::aws:policy/SecretsManagerReadWrite
 
 Now, generate the AWS access and secret key.
 
-    >aws iam create-access-key --user-name external-secrets
+    aws iam create-access-key --user-name external-secrets
 
 Place the access key and secret key onto a file and create a secret in default namespace called awssm-secret from the file.
 
-    >echo -n "REPLACE_ME_WITH_YOUR_ACCESS_KEY" > access-key
-    >echo -n "REPLACE_ME_WITH_YOUR_SECRET_KEY" > secret-access-key
-    >kubectl -n default create secret generic awssm-secret --from-file=./access-key --from-file=./secret-access-key
+    echo -n "REPLACE_ME_WITH_YOUR_ACCESS_KEY" > access-key
+    echo -n "REPLACE_ME_WITH_YOUR_SECRET_KEY" > secret-access-key
+    kubectl -n default create secret generic awssm-secret --from-file=./access-key --from-file=./secret-access-key
 
 #### **Create app secret in AWS Secret Manager**
 
@@ -82,11 +82,11 @@ Refer the manifest file in bastion server at the path /home/ec2-user/externalsec
 
 And apply the manifest
 
-    >kubectl apply -f cluster-secret-store.yaml
+    kubectl apply -f cluster-secret-store.yaml
 
 And, verify the cluster secret store is created successfully and shows the message “store validated”.
 
-    >kubectl describe clustersecretstore global-secret-store
+    kubectl describe clustersecretstore global-secret-store
 
 #### **Create ExternalSecret to fetch the secret data**
 
@@ -94,27 +94,27 @@ We’re now ready to create the ExternalSecret resource and fetch the app-secret
 
 And save the following YAML as allfunds-secret.yaml where ExternalSecret object specification is structured as such:
 
-    > * spec.refreshInterval - is set to 1 minute, meaning reconciliation will take place every minute.
-    > * spec.secretStoreRefis - set to ClusterSecretStore named global-secret-store which we created before.
-    > * spec.target.name - specifies the name of the secret object that will be created in the same namespace, where ExternalSecret is created.
-    > * spec.dataFrom - specifies the secret name in the AWS Secrets Manager as key and extracttells it to retrieve all key/value secrets.
+    * spec.refreshInterval - is set to 1 minute, meaning reconciliation will take place every minute.
+    * spec.secretStoreRefis - set to ClusterSecretStore named global-secret-store which we created before.
+    * spec.target.name - specifies the name of the secret object that will be created in the same namespace, where ExternalSecret is created.
+    * spec.dataFrom - specifies the secret name in the AWS Secrets Manager as key and extracttells it to retrieve all key/value secrets.
 
 Refer the manifest file in bastion server at the path /home/ec2-user/externalsecretsperator/allfunds-secret.yaml
 
 Finally, go ahead and apply the manifest:
 
-    >kubectl -n allfunds apply -f allfunds-secret.yaml
+    kubectl -n allfunds apply -f allfunds-secret.yaml
 
 If everything went as planned, we should get SecretSynced status for ExternalSecret resource and a new Kubernetes Secret resource called app-secret should be created.
 
-    >kubectl -n allfunds get externalsecret
-    >kubectl -n allfunds get secret allfunds-secret
+    kubectl -n allfunds get externalsecret
+    kubectl -n allfunds get secret allfunds-secret
 
 
 #### **What just happened?**
 
-    >ExternalSecret was able to authenticate to AWS Secrets Manager using the cluster-scoped secret store.
-    >ExternalSecret was able to fetch the secret data and create the Kubernetes Secret object.
+    * ExternalSecret was able to authenticate to AWS Secrets Manager using the cluster-scoped secret store.
+    * ExternalSecret was able to fetch the secret data and create the Kubernetes Secret object.
 
 
 #### **Consume the Secret from Pod**
@@ -127,7 +127,7 @@ Refer the manifest file in bastion server at the path /home/ec2-user/externalsec
 
 And apply the manifest:
 
-    >kubectl -n app apply -f app-pod.yaml
+    kubectl -n app apply -f app-pod.yaml
 	
 Once, applied. The Pod will create a single container and runs env command and exits. 
 We can check the Pod log to verify that our secret data was indeed available as an environment variable.
