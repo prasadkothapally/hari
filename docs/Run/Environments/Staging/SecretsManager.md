@@ -21,11 +21,11 @@
   apiVersion: v1  
   kind: Secret  
   metadata:  
-      name: sample-secret  
-      namespace: sample  
+      >name: sample-secret  
+      >namespace: sample  
   type: Opaque  
   data:  
-      #Base64-encoded values  
-      POSTGRES_USER: ********  
-      POSTGRES_PASSWORD: *******  
+      >#Base64-encoded values  
+      >POSTGRES_USER: ********  
+      >POSTGRES_PASSWORD: *******  
   
