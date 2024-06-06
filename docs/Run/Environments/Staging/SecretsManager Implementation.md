@@ -22,7 +22,7 @@ In simple terms, ESO makes API calls to retrieve secret data from the external s
 
 **ExternalSecret** -  A custom resource definition that specifies what secret data to fetch. It references SecretStore which knows how to access that data. The controller uses the ExternalSecret as a blueprint to create secrets.
 
-**SecretStore ** - A custom resource definition that specifies the access needed to fetch the secret from the external API. SecretStore takes care of authentication and access.
+**SecretStore** - A custom resource definition that specifies the access needed to fetch the secret from the external API. SecretStore takes care of authentication and access.
 
 And there are two kinds of SecretStore resources:
 
@@ -127,7 +127,7 @@ Refer the manifest file in bastion server at the path /home/ec2-user/externalsec
 
 And apply the manifest:
 
-    kubectl -n app apply -f app-pod.yaml
+    kubectl -n allfunds apply -f deployment.yaml
 	
 Once, applied. The Pod will create a single container and runs env command and exits. 
 We can check the Pod log to verify that our secret data was indeed available as an environment variable.
@@ -138,3 +138,5 @@ We can check the Pod log to verify that our secret data was indeed available as 
 External Secrets Operator is a mature and popular open source project with great community engagement. 
 It is well-tested and stable for production workloads with high-availability features for managing and synchronizing large-scale secrets and supports many popular external secrets providers like HashiCorp Vault, Google Secrets Manager, Azure Key Vault, and many more.
 Since External Secrets provides the same ease of use as Kubernetes native Secret objects, it doesn’t require any application modifications, and existing application leveraging Secret object works out of the box without any changes.
+
+For more information, please visit [Kubernetes Secrets using AWS Secrets Manager](https://www.giantswarm.io/blog/manage-kubernetes-secrets-using-aws-secrets-manager)
