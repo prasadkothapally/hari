@@ -1,4 +1,4 @@
-# Software Engineering principles and practices
+# Principles and Practices
 
 ## Core Ethos
 
@@ -87,6 +87,7 @@ According to OWASP,  “dep-scan is a next-generation security and risk audit to
 ### Environments
 
 We support a multi-environment system. The design of the environments is such that the lower environments are flexible to the needs of a developer. The higher environments are increasingly closer to the final production environment. The important principle is that all code created and tested in the lower environments are guaranteed to work on the higher environments. To achieve this we run multiple flavors of Kubernetes on these environments.
+
 Environment	| Stack Used
 ------------|------------
 Local	    | Docker Desktop Commercial Edition on Windows 10/11 running docker engine and Kubernetes
