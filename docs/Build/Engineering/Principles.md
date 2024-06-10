@@ -6,7 +6,8 @@ The core ethos that underpin all software engineering practices in the system ar
 
 ### Everything as Code
 [What is everything as code?](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/everything-as-code.html)
-Everything aspect of the system - such as software, migrations, build pipelines, tests, infrastructure, documentation , even diagrams as modeled in Code. This ensures they can be effectively stored, versioned and deployed in a repeatable fashion with very little manual support.
+
+Every aspect of the system - such as software, migrations, build pipelines, tests, infrastructure, documentation , even diagrams as modeled in Code. This ensures they can be effectively stored, versioned and deployed in a repeatable fashion with very little manual support.
 
 ### Everything is a Container
 Everything that we deliver in this project is a docker container. Nothing in the system requires a manual setup. This ensures very high portability of the components as they move across environments. Containers include developed software, migrations, tests, dependency software, quality assessment tools, wikis and documentation. They can be easily turned on/off for deployment across environments.
