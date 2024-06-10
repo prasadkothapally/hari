@@ -25,16 +25,22 @@ Everything in the project has a home – a repository. This includes source code
  - Each build pipeline results in an artifact.
  - Each artifact is stored in a repository.
 
+![GitLab Projects Image](gitlab-projects.JPG)
+
 ### Artifact Repositories
 
 All artifacts are housed in dedicated repositories.
 
-#### Libraries are stored in Reposilite (like Artifactory or Nexus but free and open source)
+#### Reposilite
+
+Libraries are stored in Reposilite (like Artifactory or Nexus but free and open source)
 
 ![Reposilite Image](reposilite.JPG)
 
 
-#### Containers are stored in GitLab Container Registries
+#### Docker Container Registry
+
+Containers are stored in GitLab Container Registries
 
 ![GitLab Container Registry Image](gitlab-container-registry.JPG)
  
