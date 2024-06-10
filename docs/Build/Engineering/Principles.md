@@ -36,7 +36,7 @@ All artifacts are housed in dedicated repositories.
 
 #### Containers are stored in GitLab Container Registries
 
- 
+![GitLab Container Registry Image](gitlab-container-registry.JPG)
  
 ### Versioning
 All versions follow a major.minor.fix scheme.
