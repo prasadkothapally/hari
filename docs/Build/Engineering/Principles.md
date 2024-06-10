@@ -29,9 +29,10 @@ Everything in the project has a home – a repository. This includes source code
 
 All artifacts are housed in dedicated repositories.
 
-#### Libraries are stored in Reposilite (like Artifactory or Nexus)
+#### Libraries are stored in Reposilite (like Artifactory or Nexus but free and open source)
 
- 
+![Reposilite Image](reposilite.JPG)
+
 
 #### Containers are stored in GitLab Container Registries
 
