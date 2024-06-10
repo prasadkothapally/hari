@@ -154,6 +154,8 @@ We use IaC (Infrastructure as Code) practices to patch and re-create infrastruct
  - OpenTofu (open source fork of Terraform) is used to build the infra.
  - Generates everything from Bastion, VPC, Networking, Load Balancers, Kubernetes, Databases, Nodepools, Secrets, Observability engines etc.
 
+![Infrastructure as code](infrastructure-as-code.JPG)
+
 ## Run Principles
 
 ### Migrations
@@ -162,6 +164,9 @@ We use IaC (Infrastructure as Code) practices to patch and re-create infrastruct
  - RabbitMQ state (exchanges, queues, bindings) are captured as migrations and are automatically applied on promotions,
  - We use Kubernetes init-container strategies to prioritize execution of migration containers and wait for them to finish before deploying application components.
 
+See below various migration components that are automatically patching the databases and message queues
+
+![Migration Components Image](migration-tools.JPG)
 
 ### Observability
 
@@ -209,9 +214,11 @@ The request and response payloads, headers, statuses are fully documented to ens
 
 All technical documentation is automatically generated as a Wiki. We use mkdocs engine to convert all Markdown files to a readable documentation website. In tune with the ethos of the platform, which is to containerize everything, even the Wikis are also built using pipelines and deployed on k8s environments as another container.
 All documentation uses the Markdown syntax. Various aspects of the documentation include
- - Architectural Topics
- - Design Topics
- - Operations Topics
+ - Software Engineering Principles & Practices (you are reading this !) 
+ - Architecture
+ - Component Designs
+ - Infrastructure Definition
+ - Operation Runbooks
  
 ![Wiki Filesystem](wiki-filesystem.JPG)
  
