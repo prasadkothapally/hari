@@ -5,7 +5,7 @@
 The core ethos that underpin all software engineering practices in the system are
 
 ### Everything as Code
-https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/everything-as-code.html
+[What is everything as code?](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/everything-as-code.html)
 Everything aspect of the system - such as software, migrations, build pipelines, tests, infrastructure, documentation , even diagrams as modeled in Code. This ensures they can be effectively stored, versioned and deployed in a repeatable fashion with very little manual support.
 
 ### Everything is a Container
@@ -83,10 +83,10 @@ We use SonarQube for static and dynamic code analysis and security scans. All bu
 
 ### Software dependency analysis
 The below article describes the need for software dependency analysis as a key driver for building high quality software
-https://www.sonatype.com/resources/articles/what-are-software-dependencies
+[What are software dependencies?](https://www.sonatype.com/resources/articles/what-are-software-dependencies)
 We are implementing OWASP’s Dependency Scan to assess CVEs and Licensing challenges pertaining to use of 3rd party software. 
-https://owasp.org/www-project-dep-scan/
-This implementation is currently in progress.
+[OWASP DepScan tool](https://owasp.org/www-project-dep-scan/)
+
 According to OWASP,  “dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments”.
 
 See below an integration of DepScan into our CI process
