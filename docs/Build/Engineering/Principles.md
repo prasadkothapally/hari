@@ -143,6 +143,7 @@ A sample results of the test is shown below.
  - The packaging and promotion are done as part of the Continuous Delivery pipeline
  - Configuration and Secrets for various environments are overridden and injected externally.
 
+
  
 
 ##	Infrastructure Principles
@@ -170,6 +171,7 @@ We use IaC (Infrastructure as Code) practices to patch and re-create infrastruct
  - FluentBit is run as a daemonset to trap logs and forward to OpenObserve
  - Logs can filtered, analyzed and archived in OpenObserve
 
+![OpenObserver aggregated logs](openobserve-logs.JPG)
  
 
 ### Secrets Management
