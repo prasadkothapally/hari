@@ -197,7 +197,8 @@ To fast-track a new developer into understanding how to build and deploy a compo
 
 All internal and external APIs are fully documented using OpenAPI 3.0 specifications. The requests and responses are fully documented to eliminate any source of confusion. These are used as the ONLY source of information by the UI and QA teams to either integrate into these APIs or perform Quality Assurance on these APIs. In tune with the ethos of the platform, which is to containerize everything, even the API documentation is also built using pipelines and deployed on k8s environments as another container.
 A portion of APIs is presented as a snapshot below.
- 
+
+![API Docs](openapi-docs.JPG)
 
 An elaboration of a single API is presented below.
    
