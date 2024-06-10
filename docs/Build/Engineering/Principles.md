@@ -200,7 +200,7 @@ A portion of APIs is presented as a snapshot below.
 
 ![API Docs](openapi-docs.JPG)
 
-An elaboration of a single API is presented below.
+The request and response payloads, headers, statuses are fully documented to ensure minimize dependencies on the API development teams.
 
 ![API Docs Exploded](openapi-docs-exploded.JPG)
 
@@ -208,12 +208,18 @@ An elaboration of a single API is presented below.
 ### Wikis
 
 All technical documentation is automatically generated as a Wiki. We use mkdocs engine to convert all Markdown files to a readable documentation website. In tune with the ethos of the platform, which is to containerize everything, even the Wikis are also built using pipelines and deployed on k8s environments as another container.
-
+All documentation uses the Markdown syntax. Various aspects of the documentation include
+ - Architectural Topics
+ - Design Topics
+ - Operations Topics
+ 
+![Wiki Filesystem](wiki-filesystem.JPG)
  
 
 The build of the Wiki pipeline results in the Wiki container that runs the wiki site below.
 
- 
+![Wiki Docs](wiki-docs.JPG)
+
 
 ### Diagrams
 
