@@ -201,7 +201,8 @@ A portion of APIs is presented as a snapshot below.
 ![API Docs](openapi-docs.JPG)
 
 An elaboration of a single API is presented below.
-   
+
+![API Docs Exploded](openapi-docs-exploded.JPG)
 
 
 ### Wikis
