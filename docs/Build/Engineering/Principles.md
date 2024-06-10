@@ -176,20 +176,22 @@ We use IaC (Infrastructure as Code) practices to patch and re-create infrastruct
 
 ### Secrets Management
 
+Secrets are managed in the following ways across various environments
+
 Environment | Secrets
 ------------|--------
 Local	    | Helm overrides (values.yaml)
 Dev	        | Helm overrides (values.yaml)
 Automation	| Helm overrides (values.yaml)
-Staging	    | Secrets managed in AWS Secrets Manager are injected into AWS EKS using ESO https://external-secrets.io/latest/
-
-
+Staging	    | Secrets managed in AWS Secrets Manager are injected into AWS EKS using [External Secrets Operator](https://external-secrets.io/latest/)
 
 
 ## Documentation Principles
 
 ### Development Aids
-To fast-track a new developer into understanding how to build and deploy a component, we provide Readme’s.  See below an example Readme for a component named MQ-Migrations.
+To fast-track a new developer into understanding how to build and deploy a component, we provide Readme’s.  See below an example Readme for a component named af-profile.
+
+![Developer Readme](developer-aids-readme.JPG)
  
 ### API Docs
 
