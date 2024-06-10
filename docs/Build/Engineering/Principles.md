@@ -78,7 +78,7 @@ Additional labels for pre-release and build metadata are available as extensions
 
 We use SonarQube for static and dynamic code analysis and security scans. All build pipelines are integrated to Sonar and capture quality on a continuous basis. We strive to ensure A grade on all parameters such a Reliability, Security, Maintainabilty, Duplications etc.
 
- 
+![SonarQube Code Quality Report Image](sonarqube-code-quality.JPG)
 
 
 ### Software dependency analysis
