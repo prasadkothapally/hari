@@ -66,11 +66,11 @@ Additional labels for pre-release and build metadata are available as extensions
 
 ### Continuous Integration
 
+> To be done
+
 ### Continuous Deployments
 
-
-
-
+> To be done
 
 ## Build Principles
 
@@ -89,7 +89,14 @@ https://owasp.org/www-project-dep-scan/
 This implementation is currently in progress.
 According to OWASP,  “dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments”.
 
- 
+See below an integration of DepScan into our CI process
+![OWASP DepScan Dependency Analyzer Image](owasp-depscan-dependency-analyzer-ci-integration.JPG)
+
+See below an extract of vulnerabilities identified by DepScan
+![OWASP DepScan Report Image](owasp-depscan-report.JPG)
+
+
+
 
 ### Environments
 
