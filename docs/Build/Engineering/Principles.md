@@ -226,4 +226,5 @@ The build of the Wiki pipeline results in the Wiki container that runs the wiki 
 We strive to document diagrams also as code so that they can be stored and regenerated as a diagram on demand. This ensures the  original drawings donot get lost on the developer machines. We use various engines such as PlantUML, Mermaid etc to generate diagrams and in order to interface with these various engines we use Kroki  ( https://kroki.io/ )
 
 See an example diagram generated below.
- 
+
+![Diagrams as Code](diagrams-as-code.JPG)
