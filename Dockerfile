@@ -10,6 +10,7 @@ RUN pip install mkdocs-swagger-ui
 RUN pip install mkdocs-print-site-plugin
 
 COPY ./docs /docs
+COPY ./diagrams /diagrams
 ADD ./mkdocs.yml /
 WORKDIR /
 
