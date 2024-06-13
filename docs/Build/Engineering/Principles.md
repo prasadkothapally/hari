@@ -78,6 +78,10 @@ Refer the below diagrams to understand the CI flow of various repositories
 
 ![Libraries CI Flow](../../../diagrams/library-ci-flow.jpg)
 
+![Components CI Flow](../../../diagrams/component-ci-flow.jpg)
+
+![Application CI Flow](../../../diagrams/application-ci-flow.jpg)
+
 ### Continuous Deployments
 
 > To be done
