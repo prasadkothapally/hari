@@ -76,11 +76,11 @@ We have three kinds of code in the gitlab repositories
 
 Refer the below diagrams to understand the CI flow of various repositories
 
-![Libraries CI Flow](../../../diagrams/library-ci-flow.jpg)
+![Libraries CI Flow](library-ci-flow.jpg)
 
-![Components CI Flow](../../../diagrams/component-ci-flow.jpg)
+![Components CI Flow](component-ci-flow.jpg)
 
-![Application CI Flow](../../../diagrams/application-ci-flow.jpg)
+![Application CI Flow](application-ci-flow.jpg)
 
 ### Continuous Deployments
 
