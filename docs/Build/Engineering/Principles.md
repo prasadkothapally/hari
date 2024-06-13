@@ -76,7 +76,7 @@ We have three kinds of code in the gitlab repositories
 
 Refer the below diagrams to understand the CI flow of various repositories
 
-![Libraries CI Flow](../../../diagrams/devops_flow.drawio)
+![Libraries CI Flow](../../../diagrams/library-ci-flow.png)
 
 ### Continuous Deployments
 
