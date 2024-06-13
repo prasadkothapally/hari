@@ -89,7 +89,10 @@ Refer the below diagrams to understand the CI flow of various repositories
 
 ### Continuous Deployments
 
-> To be done
+Continuous deployment is a strategy in software development where code changes to an application are released automatically into the desired environment.
+
+####Deployment Flow
+![Deployment Flow](cd-flow.jpg)
 
 ## Build Principles
 
