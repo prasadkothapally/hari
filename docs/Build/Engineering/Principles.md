@@ -67,7 +67,16 @@ Additional labels for pre-release and build metadata are available as extensions
 
 ### Continuous Integration
 
-> To be done
+Continuous integration refers to the build and unit testing stages of the software release process. Every revision that is committed triggers an automated build,code analysis,dependency analysis and test.
+We have three kinds of code in the gitlab repositories
+
+1. **Libraries:** Source code repository where we are storing the common code which will be integrated to individual modules of application.
+2. **Individual components of application:** Application is divided into components ( micro-service architecture ). Maintaining the separate repo for each individual components.
+3. **Deployment repository:** Repository to store the application and data helm charts.
+
+Refer the below diagrams to understand the CI flow of various repositories
+
+![Libraries CI Flow](../../../diagrams/devops_flow.drawio)
 
 ### Continuous Deployments
 
