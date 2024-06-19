@@ -291,12 +291,12 @@ Following are the softwares along with their versions running in Build environme
 	 
 ### **Setup of Depscan** 
     
-	**Introduction**
+**Introduction**
 
      OWASP dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. 
      Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments.
 
-    #### **Features**
+#### **Features**
 
      * Scan most application code - local repos, Linux container images, Kubernetes manifests, and OS - to identify known CVEs with prioritization
      * Perform advanced reachability analysis for multiple languages
@@ -304,8 +304,8 @@ Following are the softwares along with their versions running in Build environme
      * Generate Software Bill-of-Materials (SBOM) with Vulnerability Disclosure Report (VDR) information
      * Generate a Common Security Advisory Framework (CSAF) 2.0 VEX document 
      * Perform deep packages risk audit for dependency confusion attacks and maintenance risks 
-  
-    #### **Vulnerability DataSources**
+ 
+#### **Vulnerability DataSources**
 
      * OSV
      * NVD
@@ -317,11 +317,11 @@ Following are the softwares along with their versions running in Build environme
      To download the full vulnerability database suitable for scanning OS, invoke dep-scan with `` for the first time. 
      dep-scan would also download the appropriate database based on project type automatically.
 
-    ### **Usage**
+### **Usage**
 
      dep-scan is ideal for use during continuous integration (CI) and as a local development tool.
 
-    #### **Scanning projects locally (Python version)**
+#### **Scanning projects locally (Python version)**
   
          sudo npm install -g @cyclonedx/cdxgen
          pip install owasp-depscan
@@ -333,7 +333,7 @@ Following are the softwares along with their versions running in Build environme
          cd <project to scan>
          depscan --src $PWD --reports-dir $PWD/reports
 
-    #### **Scanning projects locally (Docker container)**
+#### **Scanning projects locally (Docker container)**
 
      ghcr.io/owasp-dep-scan/dep-scan container image can be used to perform the scan. 
  
@@ -343,7 +343,7 @@ Following are the softwares along with their versions running in Build environme
 
 
 
-    #### **Integration in Fintrust GitLab CI/CD**
+#### **Integration in Fintrust GitLab CI/CD**
 
      We integrated the docker setup of depscan in code scan stage of CI/CD using the below command
 
