@@ -289,83 +289,85 @@ Following are the softwares along with their versions running in Build environme
 	 - https://www.mkdocs.org/getting-started/#getting-started-with-mkdocs
 	 
 	 
-### **Depscan Introduction**
+### **Setup of Depscan** 
+    
+	**Introduction**
 
-OWASP dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. 
-Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments.
+     OWASP dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. 
+     Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments.
 
-### **Features**
+    #### **Features**
 
-* Scan most application code - local repos, Linux container images, Kubernetes manifests, and OS - to identify known CVEs with prioritization
-* Perform advanced reachability analysis for multiple languages
-* Package vulnerability scanning is performed locally and is quite fast. No server is used!
-* Generate Software Bill-of-Materials (SBOM) with Vulnerability Disclosure Report (VDR) information
-* Generate a Common Security Advisory Framework (CSAF) 2.0 VEX document 
-* Perform deep packages risk audit for dependency confusion attacks and maintenance risks 
+     * Scan most application code - local repos, Linux container images, Kubernetes manifests, and OS - to identify known CVEs with prioritization
+     * Perform advanced reachability analysis for multiple languages
+     * Package vulnerability scanning is performed locally and is quite fast. No server is used!
+     * Generate Software Bill-of-Materials (SBOM) with Vulnerability Disclosure Report (VDR) information
+     * Generate a Common Security Advisory Framework (CSAF) 2.0 VEX document 
+     * Perform deep packages risk audit for dependency confusion attacks and maintenance risks 
   
-#### **Vulnerability DataSources**
+    #### **Vulnerability DataSources**
 
-* OSV
-* NVD
-* GitHub
-* NPM
-* Linux vuln-list
+     * OSV
+     * NVD
+     * GitHub
+     * NPM
+     * Linux vuln-list
   
-Application vulnerabilities would be reported for all Linux distros and Windows. 
-To download the full vulnerability database suitable for scanning OS, invoke dep-scan with `` for the first time. 
-dep-scan would also download the appropriate database based on project type automatically.
+     Application vulnerabilities would be reported for all Linux distros and Windows. 
+     To download the full vulnerability database suitable for scanning OS, invoke dep-scan with `` for the first time. 
+     dep-scan would also download the appropriate database based on project type automatically.
 
-### **Usage**
+    ### **Usage**
 
-dep-scan is ideal for use during continuous integration (CI) and as a local development tool.
+     dep-scan is ideal for use during continuous integration (CI) and as a local development tool.
 
-#### **Scanning projects locally (Python version)**
+    #### **Scanning projects locally (Python version)**
   
-    sudo npm install -g @cyclonedx/cdxgen
-    pip install owasp-depscan
+         sudo npm install -g @cyclonedx/cdxgen
+         pip install owasp-depscan
 
-This would install two commands called cdxgen and depscan.
+     This would install two commands called cdxgen and depscan.
 
-We can invoke the scan command directly with the various options.
+     We can invoke the scan command directly with the various options.
 
-    cd <project to scan>
-    depscan --src $PWD --reports-dir $PWD/reports
+         cd <project to scan>
+         depscan --src $PWD --reports-dir $PWD/reports
 
-#### **Scanning projects locally (Docker container)**
+    #### **Scanning projects locally (Docker container)**
 
-ghcr.io/owasp-dep-scan/dep-scan container image can be used to perform the scan.
-
-To scan with default settings
-
-    docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
-
-
-
-#### **Integration in Fintrust GitLab CI/CD**
-
-We integrated the docker setup of depscan in code scan stage of CI/CD using the below command
-
-    docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
-
-But with the above setup, the depscan reports are generated with 'root' user, which are unable to clear by the gitlab-runner user for the subsequent build
-
-Able to fix the issue using by passing the user and group while running the docker command
-
-    docker run --rm -v $PWD:/app --user $(id -u):$(id -g) ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
-
-But the above command throws an error, because process inside the container is trying to create a  file at the root level (/.local), but it doesn't have the necessary permissions.
-
-Able to fix the issue by setting up an HOME directory, so that the file will be created in /tmp directory.
-
-    docker run --rm -v $PWD:/app --user $(id -u):$(id -g) -e HOME=/tmp ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
+     ghcr.io/owasp-dep-scan/dep-scan container image can be used to perform the scan. 
  
-To download the depscan reports as an artifacts, written the stage as below.
+     To scan with default settings
 
-artifacts:
-    when: always
-    name: depscan-reports
-    paths:
-    - reports 
+         docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
+
+
+
+    #### **Integration in Fintrust GitLab CI/CD**
+
+     We integrated the docker setup of depscan in code scan stage of CI/CD using the below command
+
+     docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
+
+     But with the above setup, the depscan reports are generated with 'root' user, which are unable to clear by the gitlab-runner user for the subsequent build
+
+     Able to fix the issue using by passing the user and group while running the docker command
+
+     docker run --rm -v $PWD:/app --user $(id -u):$(id -g) ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
+
+     But the above command throws an error, because process inside the container is trying to create a  file at the root level (/.local), but it doesn't have the necessary permissions.
+
+     Able to fix the issue by setting up an HOME directory, so that the file will be created in /tmp directory.
+
+     docker run --rm -v $PWD:/app --user $(id -u):$(id -g) -e HOME=/tmp ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
+ 
+     To download the depscan reports as an artifacts, written the stage as below.
+
+     artifacts:
+        when: always
+        name: depscan-reports
+        paths:
+        - reports 
 
  
 For reference, please visit [depscan](https://github.com/owasp-dep-scan/dep-scan?tab=readme-ov-file#scanning-projects-locally-docker-container)
