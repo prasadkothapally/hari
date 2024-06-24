@@ -12,5 +12,5 @@ The AllFunds architecture embodies the following principles.
  
  The below diagram shows a conceptual overview of the entire application.
  
- [Component Architecture](fintrust-allfunds-diagrams-component-arch.jpg)
+ ![Component Architecture](fintrust-allfunds-diagrams-component-arch.jpg)
 
