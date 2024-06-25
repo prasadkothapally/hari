@@ -1,3 +1,3 @@
 # Home
 
-Welcome to AllFunds technical documentation.
+Welcome to AllFunds technical documentation on topics related to Application build.
