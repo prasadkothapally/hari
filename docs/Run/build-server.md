@@ -1,5 +1,7 @@
 # Build Server
 
+## Bill of Materials
+
 Following are the softwares along with their versions running in Build environment
 
   Software             |     Version
@@ -14,19 +16,28 @@ Following are the softwares along with their versions running in Build environme
   helm                 |  v3.14.2
   owasp-depscan        |  ghcr.io/owasp-dep-scan/dep-scan
   
-### **Setup of Gitlab-Runner**
+# Setup
+
+## Gitlab-Runner
     
-  **Install**
-  
-	  > sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
-      
-	  * Give it permissions to execute:
+### Install
+
+1. Download
+
+``` 
+sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+```
+2. Give it permissions to execute:
 	  
-	    > sudo chmod +x /usr/local/bin/gitlab-runner
+```
+sudo chmod +x /usr/local/bin/gitlab-runner
+```
   
-      * Create a GitLab CI user:
+3. Create a GitLab CI user:
 	  
-	    > sudo useradd --comment 'gitlab-runner' --create-home gitlab-runner --shell /bin/bash
+```
+sudo useradd --comment 'gitlab-runner' --create-home gitlab-runner --shell /bin/bash
+```
 
       * Install and run as service:
 	  
