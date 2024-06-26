@@ -1,8 +1,7 @@
-# **Setup of Build Server**
+# Build Server
 
 Following are the softwares along with their versions running in Build environment
 
- 
   Software             |     Version
   ---------------------|-------------------                    
   Gitlab-runner        |  16.2.0
