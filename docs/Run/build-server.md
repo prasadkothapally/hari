@@ -103,7 +103,7 @@ To register multiple runners on the same host machine, each with a different con
 ```	  
 sudo gitlab-runner stop
 ```
-2.   Download the binary to replace the GitLab Runner executable. For example:
+2.Download the binary to replace the GitLab Runner executable. For example:
 ```	  
 sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
 ```
@@ -116,7 +116,7 @@ sudo chmod +x /usr/local/bin/gitlab-runner
 sudo gitlab-runner start
 ```
 
-##aws-cli
+## aws-cli
 
 The latest AWS CLI version is 2. So download the AWS CLI.
 ```	  
@@ -137,7 +137,7 @@ We can get the AWS CLI version using the below command.
 aws --version
 ```  
 	  
-##Docker
+## Docker
 
 The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository. To do that, we’ll add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 
@@ -172,7 +172,7 @@ Docker should now be installed, the daemon started, and the process enabled to s
 sudo systemctl status docker
 ```
 
-##docker-compose
+## docker-compose
 
 Prerequisites
 
@@ -191,7 +191,7 @@ To verify that the installation was successful, run:
 docker-compose --version
 ```
 
-##helm
+## helm
 
 Use wget to download the latest version of Helm. The download links for all supported architectures are available on the official website.
 ```
@@ -215,9 +215,10 @@ rm -rf linux-amd64
 ```
 Finally, verify you have successfully installed Helm by checking the version of the software:
 ```
-helm version	
+helm version
+```	
 
-##SonarQube
+## SonarQube
 
 In order to quickly configure and manage the SonarQube server we will be using the docker-compose file which will set up a sonar instance along with the postgres database.
 	  
@@ -233,6 +234,7 @@ Post running the above command, verify if images are downloaded and containers a
 ```	  
 docker images
 ```	  
+```
 docker ps
 ```	  
 Connect to our Sonar server using the instance public-ip address along with the port which we had specified: 9000
@@ -244,7 +246,7 @@ In order to tear down the complete infra, we can run the below command which wil
 docker-compose down
 ```
 
-##Reposilite
+## Reposilite
 
 Reposilite (formerly NanoMaven) is lightweight repository manager for Maven artifacts. It is a simple solution to replace managers like Nexus, Archiva or Artifactory.
 
@@ -301,7 +303,7 @@ sudo supervisorctl update
 Any time we make a change to any program configuration file, running the two previous commands will bring the changes into effect.
 	  
 
-##Mkdocs
+## Mkdocs
 
 Makesure pip is installed in system
 	 
@@ -314,79 +316,81 @@ Check the below documentation for more information
     https://www.mkdocs.org/getting-started/#getting-started-with-mkdocs
 	 
 	 
-### **Setup of Depscan** 
+## Depscan
     
-**Introduction**
+OWASP dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. 
+Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments.
 
-     OWASP dep-scan is a next-generation security and risk audit tool based on known vulnerabilities, advisories, and license limitations for project dependencies. 
-     Both local repositories and container images are supported as the input, and the tool is ideal for integration with ASPM/VM platforms and in CI environments.
-
-#### **Features**
+### Features
      
-     * Scan most application code - local repos, Linux container images, Kubernetes manifests, and OS - to identify known CVEs with prioritization
-     * Perform advanced reachability analysis for multiple languages
-     * Package vulnerability scanning is performed locally and is quite fast. No server is used!
-     * Generate Software Bill-of-Materials (SBOM) with Vulnerability Disclosure Report (VDR) information
-     * Generate a Common Security Advisory Framework (CSAF) 2.0 VEX document 
-     * Perform deep packages risk audit for dependency confusion attacks and maintenance risks 
+- Scan most application code - local repos, Linux container images, Kubernetes manifests, and OS - to identify known CVEs with prioritization
+- Perform advanced reachability analysis for multiple languages
+- Package vulnerability scanning is performed locally and is quite fast. No server is used!
+- Generate Software Bill-of-Materials (SBOM) with Vulnerability Disclosure Report (VDR) information
+- Generate a Common Security Advisory Framework (CSAF) 2.0 VEX document 
+- Perform deep packages risk audit for dependency confusion attacks and maintenance risks 
  
-#### **Vulnerability DataSources**
+### Vulnerability DataSources
 
-     * OSV
-     * NVD
-     * GitHub
-     * NPM
-     * Linux vuln-list
+- OSV
+- NVD
+- GitHub
+- NPM
+- Linux vuln-list
   
-     Application vulnerabilities would be reported for all Linux distros and Windows. 
-     To download the full vulnerability database suitable for scanning OS, invoke dep-scan with `` for the first time. 
-     dep-scan would also download the appropriate database based on project type automatically.
+Application vulnerabilities would be reported for all Linux distros and Windows. 
 
-### **Usage**
+To download the full vulnerability database suitable for scanning OS, invoke dep-scan with `` for the first time. 
 
-     dep-scan is ideal for use during continuous integration (CI) and as a local development tool.
+ dep-scan would also download the appropriate database based on project type automatically.
 
-#### **Scanning projects locally (Python version)**
-  
-         sudo npm install -g @cyclonedx/cdxgen
-         pip install owasp-depscan
+### *Usage
 
-     This would install two commands called cdxgen and depscan.
+ dep-scan is ideal for use during continuous integration (CI) and as a local development tool.
 
-     We can invoke the scan command directly with the various options.
+### Scanning projects locally (Python version)
+``` 
+sudo npm install -g @cyclonedx/cdxgen
+pip install owasp-depscan
+```
 
-         cd <project to scan>
-         depscan --src $PWD --reports-dir $PWD/reports
+This would install two commands called cdxgen and depscan.
 
-#### **Scanning projects locally (Docker container)**
+We can invoke the scan command directly with the various options.
+```
+cd <project to scan>
+depscan --src $PWD --reports-dir $PWD/reports
+```
 
-     ghcr.io/owasp-dep-scan/dep-scan container image can be used to perform the scan. 
+### Scanning projects locally (Docker container)
+
+- ghcr.io/owasp-dep-scan/dep-scan container image can be used to perform the scan. 
  
-     To scan with default settings
+To scan with default settings
+```
+docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
+```
 
-         docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
 
+### Integration in Fintrust GitLab CI/CD
 
+We integrated the docker setup of depscan in code scan stage of CI/CD using the below command
+```
+docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
+```
+But with the above setup, the depscan reports are generated with 'root' user, which are unable to clear by the gitlab-runner user for the subsequent build
 
-#### **Integration in Fintrust GitLab CI/CD**
+Able to fix the issue using by passing the user and group while running the docker command
+```
+docker run --rm -v $PWD:/app --user $(id -u):$(id -g) ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
+```
+But the above command throws an error, because process inside the container is trying to create a  file at the root level (/.local), but it doesn't have the necessary permissions.
 
-     We integrated the docker setup of depscan in code scan stage of CI/CD using the below command
-
-     docker run --rm -v $PWD:/app ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports
-
-     But with the above setup, the depscan reports are generated with 'root' user, which are unable to clear by the gitlab-runner user for the subsequent build
-
-     Able to fix the issue using by passing the user and group while running the docker command
-
-     docker run --rm -v $PWD:/app --user $(id -u):$(id -g) ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
-
-     But the above command throws an error, because process inside the container is trying to create a  file at the root level (/.local), but it doesn't have the necessary permissions.
-
-     Able to fix the issue by setting up an HOME directory, so that the file will be created in /tmp directory.
-
-     docker run --rm -v $PWD:/app --user $(id -u):$(id -g) -e HOME=/tmp ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
- 
-     To download the depscan reports as an artifacts, written the stage as below.
+Able to fix the issue by setting up an HOME directory, so that the file will be created in /tmp directory.
+```
+docker run --rm -v $PWD:/app --user $(id -u):$(id -g) -e HOME=/tmp ghcr.io/owasp-dep-scan/dep-scan --src /app --reports-dir /app/reports 
+``` 
+To download the depscan reports as an artifacts, written the stage as below.
 
      artifacts:
         when: always
