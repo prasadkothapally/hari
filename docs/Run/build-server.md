@@ -24,9 +24,9 @@ Following are the softwares along with their versions running in Build environme
 
 1. Download
     
-               
-    > sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
-     
+```               
+sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+```  
 
 2. Give it permissions to execute:
 	  
