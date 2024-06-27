@@ -22,46 +22,47 @@ Following are the softwares along with their versions running in Build environme
     
 ### Install
 
-1. Download
+Download
     
 ```               
 sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
 ```  
 
-2. Give it permissions to execute:
+Give it permissions to execute:
 	  
-     
-    > sudo chmod +x /usr/local/bin/gitlab-runner
-    
+```     
+sudo chmod +x /usr/local/bin/gitlab-runner
+``` 
   
-3. Create a GitLab CI user:
+Create a GitLab CI user:
 	  
-     
-    > sudo useradd --comment 'gitlab-runner' --create-home gitlab-runner --shell /bin/bash
-     
+```     
+sudo useradd --comment 'gitlab-runner' --create-home gitlab-runner --shell /bin/bash
+```  
 
-      * Install and run as service:
-	  
-	    > /usr/bin/gitlab-runner run --working-directory /home/gitlab-runner --config /etc/gitlab-runner/config.toml --service gitlab-runner --user gitlab-runner
+Install and run as service:
+
+```	  
+/usr/bin/gitlab-runner run --working-directory /home/gitlab-runner --config /etc/gitlab-runner/config.toml --service gitlab-runner --user gitlab-runner
 		
-	    > sudo gitlab-runner start
+sudo gitlab-runner start
+```  
+Advanced configuration:
 	  
-	  * Advanced configuration
-	  
-	  * To change the behavior of GitLab Runner and individual registered runners, modify the config.toml file.
+To change the behavior of GitLab Runner and individual registered runners, modify the config.toml file.
 
-      * We can find the config.toml file in:
+We can find the config.toml file in:
 	  
-	  * /etc/gitlab-runner/ on *nix systems when GitLab Runner is executed as root. This directory is also the path for service configuration.
-      * ~/.gitlab-runner/ on *nix systems when GitLab Runner is executed as non-root.
-      * ./ on other systems.
+	1./etc/gitlab-runner/ on *nix systems when GitLab Runner is executed as root. This directory is also the path for service configuration.
+     2. ~/.gitlab-runner/ on *nix systems when GitLab Runner is executed as non-root.
+     3. ./ on other systems.
 	  
-	  * GitLab Runner does not require a restart when you change most options. This includes parameters in the [[runners]] section and most parameters in the global section, except for listen_address. If a runner was already registered, you don’t need to register it again.
+GitLab Runner does not require a restart when you change most options. This includes parameters in the [[runners]] section and most parameters in the global section, except for listen_address. If a runner was already registered, you don’t need to register it again.
 
-      * GitLab Runner checks for configuration modifications every 3 seconds and reloads if necessary. GitLab Runner also reloads the configuration in response to the SIGHUP signal.
+GitLab Runner checks for configuration modifications every 3 seconds and reloads if necessary. GitLab Runner also reloads the configuration in response to the SIGHUP signal.
 	  
 	  
-  **Register Runner**
+### Register Runner
 	  
      Prerequisites:
 
@@ -89,7 +90,7 @@ sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east
 	  
 	  
 	  
-  **Update the Gitlab-runner**
+### Update the Gitlab-runner
   
 	  1.Stop the service (we need elevated command prompt as before):
 	  
