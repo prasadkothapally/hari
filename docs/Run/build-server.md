@@ -67,6 +67,7 @@ GitLab Runner checks for configuration modifications every 3 seconds and reloads
 Prerequisites:
 
 Obtain a runner authentication token. You can either:
+
 - Create a shared, group, or project runner.
 - Locate the runner authentication token in the config.toml file. Runner authentication tokens have the prefix, glrt-.
 		
@@ -100,7 +101,7 @@ To register multiple runners on the same host machine, each with a different con
 ```	  
 sudo gitlab-runner stop
 ```
-2. Download the binary to replace the GitLab Runner executable. For example:
+2.   Download the binary to replace the GitLab Runner executable. For example:
 ```	  
 sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
 ```
