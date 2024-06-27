@@ -53,9 +53,9 @@ To change the behavior of GitLab Runner and individual registered runners, modif
 
 We can find the config.toml file in:
 	  
-	1./etc/gitlab-runner/ on *nix systems when GitLab Runner is executed as root. This directory is also the path for service configuration.
-     2. ~/.gitlab-runner/ on *nix systems when GitLab Runner is executed as non-root.
-     3. ./ on other systems.
+    1 ./etc/gitlab-runner/ on *nix systems when GitLab Runner is executed as root. This directory is also the path for service configuration.
+    2. ~/.gitlab-runner/ on *nix systems when GitLab Runner is executed as non-root.
+    3. ./ on other systems.
 	  
 GitLab Runner does not require a restart when you change most options. This includes parameters in the [[runners]] section and most parameters in the global section, except for listen_address. If a runner was already registered, you don’t need to register it again.
 
@@ -64,68 +64,73 @@ GitLab Runner checks for configuration modifications every 3 seconds and reloads
 	  
 ### Register Runner
 	  
-     Prerequisites:
+Prerequisites:
 
-      * Obtain a runner authentication token. You can either:
-        * Create a shared, group, or project runner.
-        * Locate the runner authentication token in the config.toml file. Runner authentication tokens have the prefix, glrt-.
+    Obtain a runner authentication token. You can either:
+        - Create a shared, group, or project runner.
+        - Locate the runner authentication token in the config.toml file. Runner authentication tokens have the prefix, glrt-.
 		
-	  After you register the runner, the configuration is saved to the config.toml.
+After registering the runner, the configuration is saved to the config.toml.
 
-      To register the runner with a runner authentication token:
-	  1. Run the register command:
-	     > sudo gitlab-runner register
+To register the runner with a runner authentication token:
+    1. Run the register command:
+    ```
+    sudo gitlab-runner register
+    ```
+    2. Enter your GitLab URL
 
-      2. Enter your GitLab URL
-	  * For runners on GitLab self-managed, use the URL for your GitLab instance. For example, if your project is hosted on gitlab.example.com/yourname/yourproject, your GitLab instance URL is https://gitlab.example.com.
-      * For runners on GitLab.com, the gitlab-ci coordinator URL is https://gitlab.com. 
+    - For runners on GitLab self-managed, use the URL for your GitLab instance. For example, if your project is hosted on gitlab.example.com/yourname/yourproject, your GitLab instance URL is https://gitlab.example.com.
+    - For runners on GitLab.com, the gitlab-ci coordinator URL is https://gitlab.com. 
 	    Our gitlab-ci coordinator URL is https://gitlabnew.techwave.net
 		
-	  3. Enter the runner authentication token.
-      4. Enter a name for the runner.
-      5. Enter the type of executor.
+    3. Enter the runner authentication token.
+    4. Enter a name for the runner.
+    5. Enter the type of executor.
 	  
-	  * To register multiple runners on the same host machine, each with a different configuration, repeat the register command.
-	  * To register multiple runners on the same host machine, each with a different configuration, repeat the register command.
+To register multiple runners on the same host machine, each with a different configuration, repeat the register command.
+
 	  
 	  
 	  
 ### Update the Gitlab-runner
   
-	  1.Stop the service (we need elevated command prompt as before):
-	  
-	    > sudo gitlab-runner stop
+1.Stop the service (we need elevated command prompt as before):
+```	  
+sudo gitlab-runner stop
+```
+2. Download the binary to replace the GitLab Runner executable. For example:
+```	  
+sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+```
+3.Give it permissions to execute:
+```	  
+sudo chmod +x /usr/local/bin/gitlab-runner
+```
+4.Start the service:
+```
+sudo gitlab-runner start
+```
 
-      2. Download the binary to replace the GitLab Runner executable. For example:
-	  
-	    > sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+##aws-cli
 
-      3. Give it permissions to execute:
-	  
-	    > sudo chmod +x /usr/local/bin/gitlab-runner
+The latest AWS CLI version is 2. So download the AWS CLI.
+```	  
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+```
 
-      4. Start the service:
+Unzip the file using the following command.
+```	  
+unzip awscliv2.zip
+```
 	  
-	    > sudo gitlab-runner start
-		
-### **Setup of aws-cli**
-
-      The latest AWS CLI version is 2. So download the AWS CLI.
-	  
-	  > curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-	  
-	  Unzip the file using the following command.
-	  
-	  > unzip awscliv2.zip
-	  
-	  Install the AWS CLI using the following command.
-	  
-	  > sudo ./aws/install
-	  
-	  We can get the AWS CLI version using the below command.
-	  
-	  > aws --version
-	  
+Install the AWS CLI using the following command.
+```	  
+sudo ./aws/install
+```  
+We can get the AWS CLI version using the below command.
+```	  
+aws --version
+```  
 	  
 ### **Setup of Docker**
 
