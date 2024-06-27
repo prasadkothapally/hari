@@ -75,20 +75,20 @@ After registering the runner, the configuration is saved to the config.toml.
 
 To register the runner with a runner authentication token:
 
-1. Run the register command:
+Run the register command:
 ```
-    sudo gitlab-runner register
+sudo gitlab-runner register
 ```
-2. Enter your GitLab URL
+Enter your GitLab URL
 
 - For runners on GitLab self-managed, use the URL for your GitLab instance. For example, if your project is hosted on gitlab.example.com/yourname/yourproject, your GitLab instance URL is https://gitlab.example.com.
 - For runners on GitLab.com, the gitlab-ci coordinator URL is https://gitlab.com. 
 
 Our gitlab-ci coordinator URL is https://gitlabnew.techwave.net
 		
-3. Enter the runner authentication token.
-4. Enter a name for the runner.
-5. Enter the type of executor.
+Enter the runner authentication token.
+Enter a name for the runner.
+Enter the type of executor.
 	  
 To register multiple runners on the same host machine, each with a different configuration, repeat the register command.
 
