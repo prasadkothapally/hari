@@ -53,9 +53,9 @@ To change the behavior of GitLab Runner and individual registered runners, modif
 
 We can find the config.toml file in:
 	  
-    1 ./etc/gitlab-runner/ on *nix systems when GitLab Runner is executed as root. This directory is also the path for service configuration.
-    2. ~/.gitlab-runner/ on *nix systems when GitLab Runner is executed as non-root.
-    3. ./ on other systems.
+- /etc/gitlab-runner/ on *nix systems when GitLab Runner is executed as root. This directory is also the path for service configuration.
+- ~/.gitlab-runner/ on *nix systems when GitLab Runner is executed as non-root.
+- ./ on other systems.
 	  
 GitLab Runner does not require a restart when you change most options. This includes parameters in the [[runners]] section and most parameters in the global section, except for listen_address. If a runner was already registered, you don’t need to register it again.
 
@@ -66,26 +66,28 @@ GitLab Runner checks for configuration modifications every 3 seconds and reloads
 	  
 Prerequisites:
 
-    Obtain a runner authentication token. You can either:
-        - Create a shared, group, or project runner.
-        - Locate the runner authentication token in the config.toml file. Runner authentication tokens have the prefix, glrt-.
+Obtain a runner authentication token. You can either:
+- Create a shared, group, or project runner.
+- Locate the runner authentication token in the config.toml file. Runner authentication tokens have the prefix, glrt-.
 		
 After registering the runner, the configuration is saved to the config.toml.
 
 To register the runner with a runner authentication token:
-    1. Run the register command:
-    ```
-    sudo gitlab-runner register
-    ```
-    2. Enter your GitLab URL
 
-    - For runners on GitLab self-managed, use the URL for your GitLab instance. For example, if your project is hosted on gitlab.example.com/yourname/yourproject, your GitLab instance URL is https://gitlab.example.com.
-    - For runners on GitLab.com, the gitlab-ci coordinator URL is https://gitlab.com. 
-	    Our gitlab-ci coordinator URL is https://gitlabnew.techwave.net
+1. Run the register command:
+```
+    sudo gitlab-runner register
+```
+2. Enter your GitLab URL
+
+- For runners on GitLab self-managed, use the URL for your GitLab instance. For example, if your project is hosted on gitlab.example.com/yourname/yourproject, your GitLab instance URL is https://gitlab.example.com.
+- For runners on GitLab.com, the gitlab-ci coordinator URL is https://gitlab.com. 
+
+Our gitlab-ci coordinator URL is https://gitlabnew.techwave.net
 		
-    3. Enter the runner authentication token.
-    4. Enter a name for the runner.
-    5. Enter the type of executor.
+3. Enter the runner authentication token.
+4. Enter a name for the runner.
+5. Enter the type of executor.
 	  
 To register multiple runners on the same host machine, each with a different configuration, repeat the register command.
 
@@ -132,7 +134,7 @@ We can get the AWS CLI version using the below command.
 aws --version
 ```  
 	  
-### **Setup of Docker**
+##Docker
 
       The Docker installation package available in the official Ubuntu repository may not be the latest version. To ensure we get the latest version, we’ll install Docker from the official Docker repository. To do that, we’ll add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 
