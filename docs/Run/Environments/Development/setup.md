@@ -64,7 +64,7 @@ Prereuisites:
 - Internet connection
 - Container or virtual machine manager, such as: Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation
 		
-1. Installation
+1.Installation
 	  
 To install the latest minikube stable release on x86-64 Linux using binary download:
 ```	  
@@ -75,7 +75,7 @@ Next, give the file executive permission using the chmod command:
 ```	  
 sudo chmod 755 /usr/local/bin/minikube
 ```	  
-2. Start minikube cluster
+2.Start minikube cluster
 	  
 From a terminal with administrator access (but not logged in as root), run:
 ```	  
@@ -109,19 +109,19 @@ minikube delete --all
 
 To deploy and manage clusters, we need to install kubectl, the official command line tool for Kubernetes.
 	 
-1. Download kubectl with the following command
+1.Download kubectl with the following command
 ```	 
 $ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 ```	 
-2. Make the binary executable by typing
+2.Make the binary executable by typing
 ```	 
 chmod +x ./kubectl
 ```	 
-3. Then, move the binary into your path with the command:
+3.Then, move the binary into your path with the command:
 ```	 
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```	 
-4. Verify the installation by checking the version of your kubectl instance:
+4.Verify the installation by checking the version of your kubectl instance:
 ```	 
 kubectl version --short
 ```	 
@@ -192,13 +192,13 @@ Configuration is both dynamic and exportable with Caddy's API. Although no confi
 	 
 Caddy compiles for all major platforms and has no runtime dependencies.
 	 
-1. Installation
+1.Installation
 	  
 Download Caddy from the following releases pages , choose the version and system compatible one.
 
 [caddy](https://github.com/caddyserver/caddy/releases)
 	 
-2. The Caddyfile
+2.The Caddyfile
 	 
 The Caddyfile is a convenient Caddy configuration format for humans. 
 
@@ -207,7 +207,7 @@ It is most people's favorite way to use Caddy because it is easy to write, easy 
 We have Caddyfile available at below path in DEV environment
 /home/laxma/software 
 	 
-3. Caddy has a standard unix-like command line interface. Basic usage is:
+3.Caddy has a standard unix-like command line interface. Basic usage is:
 ```	 
 caddy start - Starts the Caddy process in the background
 	 
@@ -232,13 +232,13 @@ The chart repository is available under helm.kestra.io.
 	 
 The source code of the charts can be found in the kestra-io/helm-charts repository.
 	 
-1. Install the Chart
+1.Install the Chart
 ```	 
 helm repo add kestra https://helm.kestra.io/
 ```	 
 By default, the chart will only deploy one Kestra standalone service with only one replica. This means that all Kestra server components will be deployed within a single pod.
 	 
-2. Modify the kestra configuration to use the local storage
+2.Modify the kestra configuration to use the local storage
 ```	 
 	 configuration:
 	   kestra:
@@ -247,7 +247,7 @@ By default, the chart will only deploy one Kestra standalone service with only o
            local:
              base-path: /tmp/kestra/storage/
 ```		 
-3. Disable the default postgres deployment available in helm chart, and add our own datasource.
+3.Disable the default postgres deployment available in helm chart, and add our own datasource.
 ```	
 	configuration:
 	  datasources:
@@ -270,7 +270,7 @@ By default, the chart will only deploy one Kestra standalone service with only o
           size: 8Gi
 ```
 		  
-4. Disable all other deployments and enable only standalone deployment.
+4.Disable all other deployments and enable only standalone deployment.
 ```	
     deployments:
       webserver:
@@ -301,21 +301,21 @@ By default, the chart will only deploy one Kestra standalone service with only o
         terminationGracePeriodSeconds: 60
         workerThreads: 128
 ```
-5. Install the helm chart using the below command.
+5.Install the helm chart using the below command.
 ```	
 helm install kestra . -n kestra -f values.yaml
 ```	
-6.  Check the deployment, service and configmap using the below command.
+6.Check the deployment, service and configmap using the below command.
 ```	
 kubectl get deployment -n kestra
 kubectl get svc -n kestra
 kubectl get cm -n kestra
 ```	
-7. Create a temporary tunnel by port-forwarding the kestra-service.
+7.Create a temporary tunnel by port-forwarding the kestra-service.
 ```	
 kubectl -n kestra port-forward --address 0.0.0.0 svc/kestra-service 8080:8080
 ```	
-8. Access the kestra at the below address
+8.Access the kestra at the below address
 	 
 	http://172.16.22.22:8080/
 	
@@ -409,7 +409,7 @@ Depending on our package manager, we have to manually source this file in our ~/
 ```	
 source /usr/share/bash-completion/bash_completion
 ```	
-2. Enable kubectl autocompletion
+2.Enable kubectl autocompletion
 	
 Now we need to ensure that the kubectl completion script gets sourced in all our shell sessions.
 ```	
