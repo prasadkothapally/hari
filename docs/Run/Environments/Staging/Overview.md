@@ -39,15 +39,15 @@ VPC CIDR Range : 10.0.0.0/16
 
 2 Public Subnets: 
 
-    - 10.0.1.0/24  ( Hosted in ap-south-1a Availability Zone )
+ - 10.0.1.0/24  ( Hosted in ap-south-1a Availability Zone )
 
-    - 10.0.2.0/24  ( Hosted in ap-south-1b Availability Zone )
+ - 10.0.2.0/24  ( Hosted in ap-south-1b Availability Zone )
 
 2 Private Subnets:
 
-    - 10.0.3.0/24   ( Hosted in ap-south-1a Availability Zone )
+ - 10.0.3.0/24   ( Hosted in ap-south-1a Availability Zone )
 
-    - 10.0.4.0/24   ( Hosted in ap-south-1b Availability Zone )
+ - 10.0.4.0/24   ( Hosted in ap-south-1b Availability Zone )
 
 - An Internet Gateway is attached to VPC to enable the internet connectivity for the infrastructure hosted in 2 public subnets
 
