@@ -100,10 +100,15 @@ Browse the catalog of easily installed Kubernetes services
 minikube addons list
 ```
 The below list of addons are enabled on our DEV minikube
+
 - default-storageclass
+
 - ingress
+
 - ingress-dns
+
 - metrics-server
+
 - storage-provisioner
 
 To login into the minikube:
@@ -503,6 +508,6 @@ We are running PostgresDB, MongoDB and RabbitMQ.
 
 Respective docker-compose files for these DBs and message brokers are available at:
  
-      /home/devreplica/Fintrust/Postgress
+    /home/devreplica/Fintrust/Postgress
 	  /home/devreplica/Fintrust/Mongo
 	  /home/devreplica/Fintrust/RabbitMQ
