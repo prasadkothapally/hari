@@ -98,10 +98,21 @@ minikube stop
 Browse the catalog of easily installed Kubernetes services
 ```	  
 minikube addons list
-```	  
-Delete all of the minikube clusters
-```	  
-minikube delete --all
+```
+The below list of addons are enabled on our DEV minikube
+- default-storageclass
+- ingress
+- ingress-dns
+- metrics-server
+- storage-provisioner
+
+To login into the minikube:
+```
+minikube ssh
+```
+To get the IP of minikube:
+```
+minikube ip
 ```
 
 
@@ -388,14 +399,14 @@ kubectl apply -f fluent-bit.yaml
 	
 One last step is to restart the FluentBit pods so that they pick up the new configuration
 ```	
-kubectl delete pods -n fluent-bit -l app.kubernetes.io/name=fluent-bi
+kubectl delete pods -n fluent-bit -l app.kubernetes.io/name=fluent-bit
 ```	
 FluentBit should now begin to forward logs from cluster to the OpenObserve endpoint specified. We can then use OpenObserve UI to view and analyze the logs.
 	
 Reference doc:[fluent-bit](https://openobserve.ai/blog/how-to-send-kubernetes-logs-using-fluent-bit/)
 	
 	
-#### Shell Auto-Completion for Kubectl
+### Shell Auto-Completion for Kubectl
    
 kubectl provides autocompletion support for Bash, Zsh, Fish, and PowerShell, which can saves a lot of typing.
 	

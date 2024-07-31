@@ -224,7 +224,7 @@ In order to quickly configure and manage the SonarQube server we will be using t
 	  
 The docker-compose.yml file is located at the below directory.
 	  
-/home/laxmareddykandimalla/Fintrust/sonarqube-docker
+/home/build/Fintrust/sonarqube-docker
 	  
 To set up the sonar server along with postgres just run the below command which will pull in all the specified images for sonar and Postgres and will start up the containers using which we can access our server.
 ```	  
@@ -262,11 +262,11 @@ Download the Reposilite from GitHub release page
 	  
 Reposilite stores data in current working directory, by default it is a place where we've launched it , below is the path.
 	  
-/home/laxmareddykandimalla/Fintrust/reposilite
+/home/build/Fintrust/reposilite
 	  
 We have a script to start the reposilte which is located at the below path
 	  
-/home/laxmareddykandimalla/Fintrust/reposilite/start-reposilite.sh
+/home/build/Fintrust/reposilite/start-reposilite.sh
 	  
 Access it using the below address
 	  
