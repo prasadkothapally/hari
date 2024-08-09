@@ -24,3 +24,4 @@ FROM nginx:1.26
 COPY --from=build ./site/ /usr/share/nginx/html/
 COPY  --from=build ./.htpasswd /etc/nginx/.htpasswd
 COPY --from=build ./nginx.conf /etc/nginx/conf.d/
+RUN cat /etc/nginx/conf.d/nginx.conf > /etc/nginx/conf.d/default.conf
