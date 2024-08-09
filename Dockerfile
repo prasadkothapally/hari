@@ -19,4 +19,4 @@ WORKDIR /
 RUN mkdocs build
 
 FROM nginx:1.26 
-COPY --from build ./site/ /var/nginx/www/html/
+COPY --from=build ./site/ /var/nginx/www/html/
