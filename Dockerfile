@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bookworm
+FROM python:3.11-slim-bookworm as build
 
 RUN pip install mkdocs
 RUN pip install mkdocs_puml
@@ -14,5 +14,9 @@ COPY ./diagrams /diagrams
 ADD ./mkdocs.yml /
 WORKDIR /
 
-EXPOSE 8080
-CMD ["mkdocs", "serve", "-a", "0.0.0.0:8080"]
+#EXPOSE 8080
+#CMD ["mkdocs", "serve", "-a", "0.0.0.0:8080"]
+RUN mkdocs build
+
+FROM nginx:1.26 
+COPY --from build ./site/ /var/nginx/www/html/
